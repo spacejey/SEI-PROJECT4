@@ -1,0 +1,20 @@
+[
+  {
+    "model": "reviews.review",
+    "pk": 1,
+    "fields": {
+      "rate": "4.3",
+      "date": "2023-04-14T23:37:56.400Z",
+      "text": "It's Really nice app!"
+    }
+  },
+  {
+    "model": "reviews.review",
+    "pk": 3,
+    "fields": {
+      "rate": "5.0",
+      "date": "2023-04-14T23:59:42.269Z",
+      "text": "I love it!"
+    }
+  }
+]

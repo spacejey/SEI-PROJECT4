@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 class Menu(models.Model):
     truck_id = models.ForeignKey(
         'trucks.Truck',

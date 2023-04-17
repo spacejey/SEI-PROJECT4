@@ -1,0 +1,36 @@
+[
+  {
+    "model": "trucks.truck",
+    "pk": 7,
+    "fields": {
+      "name": "Kings Cream",
+      "description": "London best Ice cream truck!",
+      "on_monday": false,
+      "on_tuesday": false,
+      "on_wednesday": false,
+      "on_thursday": false,
+      "on_friday": true,
+      "on_saturday": true,
+      "on_sunday": true,
+      "start_time": "12:00:00",
+      "end_time": "18:00:00"
+    }
+  },
+  {
+    "model": "trucks.truck",
+    "pk": 9,
+    "fields": {
+      "name": "Elly's Ice App!",
+      "description": "I can finish this app!",
+      "on_monday": false,
+      "on_tuesday": true,
+      "on_wednesday": true,
+      "on_thursday": true,
+      "on_friday": true,
+      "on_saturday": true,
+      "on_sunday": true,
+      "start_time": "12:00:00",
+      "end_time": "18:00:00"
+    }
+  }
+]
