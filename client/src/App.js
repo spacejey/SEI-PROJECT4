@@ -7,7 +7,7 @@ import Home from './components/Home'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import Map from './components/main/Map'
-import Truck from './components/main/Truck'
+import Trucks from './components/main/Trucks'
 import TruckSingle from './components/main/TruckSingle'
 import Profile from './components/main/Profile'
 import PageNotFound from './components/common/PageNotFound'
@@ -32,7 +32,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/map" element={<Map />} />
-          <Route path="/truck" element={<Truck />} />
+          <Route path="/trucks" element={<Trucks />} />
           <Route path="/truck/:truckId" element={<TruckSingle />} />
           <Route path="/user/:userId" element={<Profile />} />
           <Route path="*" element={<PageNotFound />} />
