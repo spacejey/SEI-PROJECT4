@@ -1,44 +1,52 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.exceptions import NotFound, ValidationError
-from .serializers.common import ReviewSerializer
+from rest_framework.exceptions import PermissionDenied
 
 from .models import Review
+from .serializers.common import ReviewSerializer
+
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from lib.exceptions import exceptions
+
+
 
 # api/reviews/
 class ReviewListView(APIView):
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+    # get all the reviews
+    # endpoint: GET /api/reviews/
+    @exceptions
     def get(self, request):
         reviews = Review.objects.all()
         serialized_reviews = ReviewSerializer(reviews, many=True)
         return Response(serialized_reviews.data)
     
+    # creat reviews
+    # endpoint:  /api/reviews/
+    @exceptions
     def post(self, request):
         print('POST FUNCTION EXCUTED')
-        review = ReviewSerializer(data=request.data)
-        review.is_valid(raise_exception=True)
-        review.save()
-        print(review.data)
-        return Response(review.data, status.HTTP_201_CREATED)
+        print('REQUEST DATA ->', { **request.data, 'owner': request.user.id })
+        review_to_create = ReviewSerializer(data={ **request.data, 'owner': request.user.id })
+        review_to_create.is_valid(raise_exception=True)
+        review_to_create.save()
+        return Response(review_to_create.data, status.HTTP_201_CREATED)
+
+
 
 # api/reviews/:id
 class ReviewDetailView(APIView):
-    def get(self, request, id):
-        review = Review.objects.get(id=id)
-        serialized_review = ReviewSerializer(review)
-        return Response(serialized_review.data)
-    
-    def put(self, request, id):
-        review = Review.objects.get(id=id)
-        serialized_review = ReviewSerializer(review, request.data)
-        serialized_review.is_valid(raise_exception=True)
-        serialized_review.save()
-        print('PUT IS PRINTED')
-        return Response(serialized_review.data)
-    
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+    # delete reviews
+    # endpoint: DELETE /api/reviews/
     def delete(self, request, id):
-        review = Review.objects.get(id=id)
-        review.delete()
+        review_to_delete = Review.objects.get(id=id)
+        if review_to_delete.owner != request.user and not request.user.is_staff:
+            raise PermissionDenied()
+        review_to_delete.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 

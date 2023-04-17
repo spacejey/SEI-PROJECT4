@@ -22,6 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-ba7)z!nr7hk7zr08**e1vnjzs6tri*jas_$z-xs3jl=z4l40ie'
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -40,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'trucks',
     'reviews',
-    'menu'
+    'menu',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +129,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'users.User'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'users.authentication.JWTAuthentication'
+    ]
+}

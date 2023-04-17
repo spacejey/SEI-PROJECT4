@@ -6,4 +6,5 @@ from .views import TruckListView, TruckDetailView
 urlpatterns = [
     path('', TruckListView.as_view()),
     path('<int:id>/', TruckDetailView.as_view()),
+    
 ]
