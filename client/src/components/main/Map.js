@@ -1,5 +1,14 @@
+import React from 'react'
+import MapComponent from './MapComponent'
+
+
 const Map = () => {
-  return <h1>Map</h1>
+  return (
+    <div>
+      <h1>Map Page</h1>
+      <MapComponent />
+    </div>
+  )
 }
 
 export default Map
