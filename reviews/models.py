@@ -1,8 +1,8 @@
 from django.db import models
 
-class RatingField(models.DecimalField):
-    decimal_places = 1
-    max_digits = 2
+# class RatingField(models.DecimalField):
+    # decimal_places = 1
+    # max_digits = 2
 
 class Review(models.Model):
     owner = models.ForeignKey(

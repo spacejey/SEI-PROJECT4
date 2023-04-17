@@ -27,7 +27,6 @@ class ReviewListView(APIView):
     # endpoint:  /api/reviews/
     @exceptions
     def post(self, request):
-        print('POST FUNCTION EXCUTED')
         print('REQUEST DATA ->', { **request.data, 'owner': request.user.id })
         review_to_create = ReviewSerializer(data={ **request.data, 'owner': request.user.id })
         review_to_create.is_valid(raise_exception=True)
