@@ -27,7 +27,6 @@ const Map = () => {
     const getTrucks = async () => {
       try {
         const { data } = await axios.get('/api/trucks/')
-        console.log('WANTED DATA->', data)
         setTrucks(data)
       } catch (err) {
         console.log(err)
@@ -46,19 +45,16 @@ const Map = () => {
         trucks.map(truck => {
           const { id, name, description, open, closed } = truck
           return (
-            <>
-              
-              <Card style={{ width: '22rem' }}>
-                <Card.Body>
-                  <Card.Title style={{ color: 'green' }}>{name}</Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted">
-                    {open}~ {closed}
-                  </Card.Subtitle>
-                  <Card.Text>{description}</Card.Text>
-                  <Card.Link href="/truck/:truckId">Truck Single</Card.Link>
-                </Card.Body>
-              </Card>
-            </>
+            <Card style={{ width: '22rem' }} key={id}>
+              <Card.Body>
+                <Card.Title style={{ color: 'green' }}>{name}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">
+                  {open}~ {closed}
+                </Card.Subtitle>
+                <Card.Text>{description}</Card.Text>
+                <Button to={`/trucks/${id}`} as={Link}>Truck Single</Button>
+              </Card.Body>
+            </Card>
           )
         })
         :

@@ -11,9 +11,10 @@ class Truck(models.Model):
     on_friday = models.BooleanField(default=False)
     on_saturday = models.BooleanField(default=False)
     on_sunday = models.BooleanField(default=False)
-    start_time = models.TimeField(default='09:00')
-    end_time = models.TimeField(default='17:00')
-    review_count = models.IntegerField(default=0)
+    open = models.TimeField(default='09:00')
+    closed = models.TimeField(default='17:00')
+    reviewcount = models.IntegerField(default=0)
+
 
     def update_review_count(self):
         self.review_count = self.reviews.count()
