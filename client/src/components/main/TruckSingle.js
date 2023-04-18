@@ -21,15 +21,12 @@ const TruckSingle = () => {
   const { truckId } = useParams()
 
 
-
-
-
-
   useEffect(() => {
     const getTruck = async () => {
       try {
         const { data } = await axios.get(`/api/trucks/${truckId}/`)
         setTruck(data)
+        console.log(data)
       } catch (err) {
         console.log(error)
       }
@@ -47,8 +44,16 @@ const TruckSingle = () => {
             <Card.Title style={{ color: 'green' }}>{truck.name}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">
               {truck.open} ~ {truck.closed}
-            </Card.Subtitle>
+            </Card.Subtitle>  
             <Card.Text>{truck.description}</Card.Text>
+            <div>
+              {Object.keys(truck).filter(day => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].includes(day)).map((day) => {
+                if (day !== 'name' && day !== 'open' && day !== 'closed' && truck[day]) {
+                  return <p key={day}>{day}</p>
+                }
+                return null
+              })}
+            </div>
           </Card.Body>
         </Card>
         :
