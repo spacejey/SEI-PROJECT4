@@ -6,6 +6,8 @@ const containerStyle = {
   height: '60vh',
 }
 
+const libraries = ['places'] 
+
 function MapComponent() {
 
   const [currentPosition, setCurrentPosition] = useState(null)
@@ -46,7 +48,7 @@ function MapComponent() {
 
 
   return (
-    <LoadScript googleMapsApiKey={ process.env.REACT_APP_GOOGLE_MAPS_API_KEY } libraries={['places']}>
+    <LoadScript googleMapsApiKey={ process.env.REACT_APP_GOOGLE_MAPS_API_KEY } libraries={libraries}>
       <GoogleMap mapContainerStyle={containerStyle} center={currentPosition} zoom={13}>
         {markers.map((marker, index) => (
           <Marker key={index} position={marker.position} />

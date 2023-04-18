@@ -19,7 +19,6 @@ const App = () => {
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios.get('/api/trucks/') // * <-- replace with your endpoint
-      console.log(data)
     }
     getData()
   })
@@ -33,7 +32,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/map" element={<Map />} />
           <Route path="/trucks" element={<Trucks />} />
-          <Route path="/truck/:truckId" element={<TruckSingle />} />
+          <Route path="/trucks/:truckId" element={<TruckSingle />} />
           <Route path="/user/:userId" element={<Profile />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
