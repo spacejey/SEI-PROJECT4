@@ -11,10 +11,27 @@ import Trucks from './components/main/Trucks'
 import TruckSingle from './components/main/TruckSingle'
 import Profile from './components/main/Profile'
 import PageNotFound from './components/common/PageNotFound'
+import PageNavbar from './components/common/PageNavBar'
 import Footer from './components/common/Footer'
+import { loggedInUser, authenticated } from './helpers/auth'
 
 
 const App = () => {
+
+
+  const [ user, setUser ] = useState([])
+  const [ userError, setUserError ] = useState('')
+  const getUser = useCallback(async () => {
+    try {
+      const { data } = await authenticated.get(`/api/users/${loggedInUser()}`)
+      setUser({ ...data })
+    } catch (err) {
+      console.log(err)
+      setUserError(err.message)
+    }
+  }, [])
+
+
 
   useEffect(() => {
     const getData = async () => {
@@ -26,6 +43,7 @@ const App = () => {
   return (
     <div className='site-wrapper'>
       <BrowserRouter>
+        <PageNavbar className='navbar' />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
@@ -33,7 +51,7 @@ const App = () => {
           <Route path="/map" element={<Map />} />
           <Route path="/trucks" element={<Trucks />} />
           <Route path="/trucks/:truckId" element={<TruckSingle />} />
-          <Route path="/user/:userId" element={<Profile />} />
+          <Route path="/user/:userId" element={<Profile getUser={getUser} user={user} userError={userError} setUserError={setUserError} />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Footer />
