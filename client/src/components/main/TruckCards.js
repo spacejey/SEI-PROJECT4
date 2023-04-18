@@ -1,11 +1,10 @@
 import axios from 'axios'
-import { useEffect, useState, useCallback } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 // Components
 import Error from '../common/Error'
 import Spinner from '../common/Spinner'
-import { isAuthenticated } from '../../helpers/auth'
 
 // Bootstrap
 import { Container, Row, Col, Card, Button } from 'react-bootstrap'
