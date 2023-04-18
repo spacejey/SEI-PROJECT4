@@ -8,9 +8,10 @@ function PageNavBar() {
       <Navbar bg="light" variant="light">
         <Container>
           <Navbar.Brand href="/map">Navbar</Navbar.Brand>
-          {/* <Nav className="me-auto">
-            <Nav.Link href="/user/:userId">Profile</Nav.Link>
-          </Nav> */}
+          <Nav className="me-auto">
+            <Nav.Link href="/login">Log In</Nav.Link>
+            <Nav.Link href="/register">Sign In</Nav.Link>
+          </Nav>
         </Container>
       </Navbar>
     </>
