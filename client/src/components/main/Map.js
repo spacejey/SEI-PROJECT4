@@ -6,6 +6,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import MapComponent from './MapComponent'
 import Error from '../common/Error'
 import Spinner from '../common/Spinner'
+import TruckCard from './TruckCards'
 import { isAuthenticated } from '../../helpers/auth'
 
 // Bootstrap
@@ -45,14 +46,21 @@ const Map = () => {
         trucks.map(truck => {
           const { id, name, description, open, closed } = truck
           return (
-            <Card style={{ width: '22rem' }} key={id}>
+            <Card key={id}>
               <Card.Body>
-                <Card.Title style={{ color: 'green' }}>{name}</Card.Title>
+                <Card.Title style={{ color: 'green' }}>{truck.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
-                  {open}~ {closed}
+                  {truck.open} ~ {truck.closed} 
                 </Card.Subtitle>
-                <Card.Text>{description}</Card.Text>
-                <Button to={`/trucks/${id}`} as={Link}>Truck Single</Button>
+                <div>
+                  {Object.keys(truck).filter(day => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].includes(day)).map((day) => {
+                    if (day !== 'name' && day !== 'open' && day !== 'closed' && truck[day]) {
+                      return <p key={day}>{day}</p>
+                    }
+                    return null
+                  })}
+                </div>
+                <Button as={Link} to={`/trucks/${id}`}>Single Truck</Button>
               </Card.Body>
             </Card>
           )
