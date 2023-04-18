@@ -47,7 +47,7 @@ const TruckSingle = () => {
             <h5>Menu...</h5>
             <Card.Body>{truck.menu}</Card.Body>
             <h5>Reviews</h5>
-            
+
           </Card>
         </Col>
       </Row>
