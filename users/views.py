@@ -12,8 +12,18 @@ from lib.exceptions import exceptions
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
-class RegisterView(APIView):
 
+class GetUsersView(APIView):
+    # GET USERS
+    # Endpoint: GET /api/auth/users/
+    @exceptions
+    def get(self, request):
+        users = User.objects.all()
+        serializer = UserSerializer(users, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+
+class RegisterView(APIView):
     # REGISTER ROUTE
     # Endpoint: POST /api/auth/register/
     @exceptions
@@ -25,7 +35,6 @@ class RegisterView(APIView):
     
 
 class LoginView(APIView):
-
     # LOGIN ROUTE
     # Endpoint: POST /api/auth/login/
     @exceptions

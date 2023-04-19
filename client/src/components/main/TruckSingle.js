@@ -7,6 +7,7 @@ import Error from '../common/Error'
 import Spinner from '../common/Spinner'
 import TruckCard from './TruckCards'
 import { isAuthenticated } from '../../helpers/auth'
+import Reviews from './Reviews'
 
 // Bootstrap
 import { Container, Row, Col, Card, Button } from 'react-bootstrap'
@@ -16,7 +17,7 @@ const TruckSingle = () => {
 
   // ! State
   const [ truck, setTruck ] = useState({})
-  const [ error, setError ] = useState('')
+  const [ truckError, setTruckError ] = useState('')
 
   // ! Variables
   const { truckId } = useParams()
@@ -28,7 +29,7 @@ const TruckSingle = () => {
         const { data } = await axios.get(`/api/trucks/${truckId}/`)
         setTruck(data)
       } catch (err) {
-        console.log(error)
+        console.log(truckError)
       }
     }
     getTruck()
@@ -42,12 +43,13 @@ const TruckSingle = () => {
         <Col xs={{ span: 10, offset: 1 }} sm={{ span: 10, offset: 3 }} md={{ span: 10, offset: 2 }}>
           <TruckCard />
           <Card>
+            <Card.Img variant="top" src="" />
             <h5>About my truck...</h5>
             <Card.Body>{truck.description}</Card.Body>
             <h5>Menu...</h5>
             <Card.Body>{truck.menu}</Card.Body>
             <h5>Reviews</h5>
-
+            <Reviews />
           </Card>
         </Col>
       </Row>

@@ -10,6 +10,7 @@ import Map from './components/main/Map'
 import Trucks from './components/main/Trucks'
 import TruckSingle from './components/main/TruckSingle'
 import Profile from './components/main/Profile'
+import Reviews from './components/main/Reviews'
 import PageNotFound from './components/common/PageNotFound'
 import PageNavbar from './components/common/PageNavBar'
 import Footer from './components/common/Footer'
@@ -35,7 +36,7 @@ const App = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios.get('/api/trucks/') // * <-- replace with your endpoint
+      const { data } = await axios.get('/api/admin/') // * <-- replace with your endpoint
     }
     getData()
   })
@@ -46,12 +47,13 @@ const App = () => {
         <PageNavbar className='navbar' />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/map" element={<Map />} />
-          <Route path="/trucks" element={<Trucks />} />
-          <Route path="/trucks/:truckId" element={<TruckSingle />} />
-          <Route path="/user/:userId" element={<Profile getUser={getUser} user={user} userError={userError} setUserError={setUserError} />} />
+          <Route path="/register/" element={<Register />} />
+          <Route path="/login/" element={<Login />} />
+          <Route path="/map/" element={<Map />} />
+          <Route path="/trucks/" element={<Trucks />} />
+          <Route path="/trucks/:truckId/" element={<TruckSingle />} />
+          <Route path="/reviews/" element={<Reviews />} />
+          <Route path="/user/:userId/" element={<Profile getUser={getUser} user={user} userError={userError} setUserError={setUserError} />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Footer />
