@@ -1,15 +1,33 @@
 .main-title{
   text-align: center;
+  position: relative;
+  @extend %flex-center;
+  flex-direction: column;
 }
 
 .stay{
   font-family: $sub-font;
-  font-size: 90px;
+  font-size: 100px;
+  position: absolute;
+  top: -180px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.icecream{
+  @extend %flex-center;
+  position: absolute;
+  width: 180px;
+  top: -180px;
 }
 
 .cool{
   font-family: $main-font;
-  font-size: 90px;
+  font-size: 100px;
+  position: absolute;
+  bottom: -280px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .main-btn{
@@ -20,11 +38,8 @@
   color: black;
   background-color: transparent;
   border: transparent;
-}
-
-@media screen and (max-width: 600px) {
-  .main-title {
-    font-size: 60px;
-    text-align: center;
-  }
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

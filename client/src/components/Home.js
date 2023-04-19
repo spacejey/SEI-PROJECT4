@@ -6,6 +6,9 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 
+// Components
+import Icecream from '../images/home-icecream-3d.png'
+
 const Home = () => {
 
   
@@ -16,7 +19,7 @@ const Home = () => {
           <Col>
             <div className='main-title'>
               <span className='stay'>STAY</span><br />
-              <a href=""></a>
+              <img className='icecream' src={Icecream} alt="" />
               <span className='cool'>COOL</span>
             </div>
             <div className='main-btn'>
