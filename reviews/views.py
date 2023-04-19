@@ -40,7 +40,7 @@ class ReviewDetailView(APIView):
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     # delete reviews
-    # endpoint: DELETE /api/reviews/
+    # endpoint: DELETE /api/reviews/id
     def delete(self, request, id):
         review_to_delete = Review.objects.get(id=id)
         if review_to_delete.owner != request.user and not request.user.is_staff:

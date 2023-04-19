@@ -30,9 +30,7 @@ export const getToken = () => {
 
 export const authenticated = axios.create()
 authenticated.interceptors.request.use(config => {
-  // Updating config object to include an Authorization header
   config.headers['Authorization'] = `Bearer ${getToken()}`
-  // Return updated config object
   return config
 })
 

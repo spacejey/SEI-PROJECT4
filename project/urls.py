@@ -24,3 +24,5 @@ urlpatterns = [
     path('api/menu/', include('menu.urls')),
     path('api/auth/', include('users.urls')),
 ]
+
+

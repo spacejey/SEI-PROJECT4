@@ -29,7 +29,7 @@ function PageNavBar() {
           <Nav className="me-auto">
             {isLoggedIn ? (
               <>
-                <Nav.Link href="/login">Profile</Nav.Link>
+                <Nav.Link href="/user/:userId">Profile</Nav.Link>
                 <Button onClick={handleLogout}>Logout</Button>
               </>
             ) : (
