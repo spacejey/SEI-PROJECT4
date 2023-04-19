@@ -1,0 +1,30 @@
+.main-title{
+  text-align: center;
+}
+
+.stay{
+  font-family: $sub-font;
+  font-size: 90px;
+}
+
+.cool{
+  font-family: $main-font;
+  font-size: 90px;
+}
+
+.main-btn{
+  display: flex;
+  flex-direction: column;
+  font-family: $login-font;
+  font-size: 47px;
+  color: black;
+  background-color: transparent;
+  border: transparent;
+}
+
+@media screen and (max-width: 600px) {
+  .main-title {
+    font-size: 60px;
+    text-align: center;
+  }
+}

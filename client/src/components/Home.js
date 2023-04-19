@@ -7,20 +7,25 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 
 const Home = () => {
+
+  
   return (
     <main>
-      <Container>
-        <Row>
-          <Col xs={{ span: 10, offset: 1 }} sm={{ span: 6, offset: 3 }} md={{ span: 4, offset: 4 }}>
-            <h1>STAY<br />COOL</h1>
-            <Button to="/Map" as={Link} className='btn'>Start to be Stay Cool!</Button>
-            <br />
-            <Button to="/Login" as={Link} className='btn'>Wanna Login?</Button>
+      <Container xs={{ span: 10 }} sm={{ span: 6 }} md={{ span: 4 }}>
+        <Row style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+          <Col>
+            <div className='main-title'>
+              <span className='stay'>STAY</span><br />
+              <a href=""></a>
+              <span className='cool'>COOL</span>
+            </div>
+            <div className='main-btn'>
+              <Button to="/Map" as={Link} className='main-btn'>Start!</Button>
+            </div>
           </Col>
         </Row>
       </Container>
     </main>
-
   )
 }
 

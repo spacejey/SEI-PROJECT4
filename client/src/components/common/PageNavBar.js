@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button'
 
 function PageNavBar() {
 
+  const noNav = ['/', '/login', '/register']
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   useEffect(() => {
@@ -23,6 +24,7 @@ function PageNavBar() {
 
   return (
     <>
+      {!noNav.includes(location.pathname) &&
       <Navbar bg="light" variant="light" >
         <Container>
           <Navbar.Brand href="/map">Navbar</Navbar.Brand>
@@ -42,6 +44,7 @@ function PageNavBar() {
           </Nav>
         </Container>
       </Navbar>
+      }
     </>
   )
 }
