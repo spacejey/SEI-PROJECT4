@@ -11,6 +11,7 @@ import { isAuthenticated } from '../../helpers/auth'
 
 // Bootstrap
 import { Container, Row, Col, Card, Button } from 'react-bootstrap'
+import PageNavBar from '../common/PageNavBar'
 
 
 const Map = () => {
@@ -40,6 +41,7 @@ const Map = () => {
 
   return (
     <Container>
+      <PageNavBar />
       <MapComponent />
       <h1>Trucks around of me...</h1>
       {trucks.length > 0 ?
