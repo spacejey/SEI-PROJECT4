@@ -32,7 +32,7 @@ function PageNavBar() {
             <div className="d-flex">
               <Nav className="me-auto">
                 {isLoggedIn ? (
-                  <Nav.Link href="/user/:userId" className='profile-photo'><MdAccountCircle size={25} /></Nav.Link>
+                  <Nav.Link href="/user" className='profile-photo'><MdAccountCircle size={25} /></Nav.Link>
                 ) : (
                   <>
                     <Nav.Link href="/login">Log In</Nav.Link>

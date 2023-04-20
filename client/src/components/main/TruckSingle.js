@@ -39,18 +39,23 @@ const TruckSingle = () => {
 
 
   return (
-    <Container  className="d-flex justify-content-center align-items-center">
+    <Container  className="d-flex justify-content-center align-items-center container-fluid vh-100">
       <PageNavBar />
       <Row>
         <Col xs={{ span: 10, offset: 1 }} sm={{ span: 10, offset: 3 }} md={{ span: 10, offset: 2 }}>
           <TruckCard />
-          <Card>
-            <Card.Img variant="top" src="" />
-            <h5>About my truck...</h5>
+          <Card.Img variant="top" src="" />
+          <h5>About my truck...</h5>
+          <Card.Body>{truck.image}</Card.Body>
+          <Card>  
             <Card.Body>{truck.description}</Card.Body>
-            <h5>Menu...</h5>
+          </Card>
+          <h5>Menu...</h5>
+          <Card>
             <Card.Body>{truck.menu}</Card.Body>
-            <h5>Reviews</h5>
+          </Card>
+          <h5>Reviews</h5>
+          <Card>
             <Reviews />
           </Card>
         </Col>

@@ -46,13 +46,13 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/register/" element={<Register />} />
-          <Route path="/login/" element={<Login />} />
-          <Route path="/map/" element={<Map />} />
-          <Route path="/trucks/" element={<Trucks />} />
-          <Route path="/trucks/:truckId/" element={<TruckSingle />} />
-          <Route path="/reviews/" element={<Reviews />} />
-          <Route path="/user/:userId/" element={<Profile getUser={getUser} user={user} userError={userError} setUserError={setUserError} />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/map" element={<Map />} />
+          <Route path="/trucks" element={<Trucks />} />
+          <Route path="/trucks/:truckId" element={<TruckSingle />} />
+          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/user" element={<Profile />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
