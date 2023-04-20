@@ -21,7 +21,7 @@ const ProfileImage = ({ userId, getUser, user, setUserError }) => {
 
     try {
       const { data } = await axios.post(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, formData)
-      await authenticated.put(`/api/users/${userId}/profile`, { image: data.secure_url })
+      await authenticated.put(`/api/users/${userId}/`, { image: data.secure_url })
       getUser()
     } catch (err) {
       console.log(err)

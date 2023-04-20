@@ -2,13 +2,17 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 
-// Custom imports
-import { includesUserId, isAuthenticated, authenticated } from '../../helpers/auth'
-
 //Bootstrap
 import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
-const Profile = () => {
+// Custom imports
+import { includesUserId, isAuthenticated, authenticated } from '../../helpers/auth'
+import Spinner from '../common/Spinner'
+import Error from '../common/Error'
+import ProfileImage from './ProfileImage'
+
+const Profile = ({ getUser, userError, setUserError }) => {
 
   // ! Variables
   const { userId } = useParams()
@@ -16,21 +20,23 @@ const Profile = () => {
 
   // ! State
   const [ user, setUser ] = useState(null)
+  const [ trucks, setTrucks ] = useState([])
   const [ userReviews, setUserReviews ] = useState([])
-  const [ stagesError, setStagesError ] = useState('')
+  const [ trucksError, setTrucksError ] = useState('')
   
 
   // ! On Mount
   useEffect(() => {
-    // !isAuthenticated() && navigate('/')
+    !isAuthenticated() && navigate('/')
     const getReviews = async () => {
       try {
         const { data } = await authenticated.get('/api/auth/users/')
         setUser(data)
         setUserReviews(userReviews)
+        console.log(userReviews)
       } catch (err) {
         console.log(err)
-        setStagesError(err.message)
+        setTrucksError(err.message)
       }
     }
     getReviews()
@@ -40,15 +46,26 @@ const Profile = () => {
   return (
     <Form >
       <Form.Group className="mb-3">
-        <Form.Label>
-          {user &&
-            <div>
-              {user.username}
-            </div>
+        <div className='info'>
+          {user ?
+            <>
+              <ProfileImage userId={userId} getUser={getUser} user={user} setUserError={setUserError} />
+              <p> {user && <div> Hello, {user.username} </div>} </p>
+              <div className='info-username-email'>
+                <h3>Username: @{user.username}</h3>
+                <h3>Email: {user.email}</h3>
+              </div>
+            </>
+            :
+            <>
+              {userError ?
+                <Error error={userError} />
+                :
+                <Spinner />}
+            </>
           }
-        </Form.Label>
-        <Form.Text className="text-muted">
-        </Form.Text>
+        </div>
+        <Button>Check my reviews</Button>
       </Form.Group>
     </Form>
   )

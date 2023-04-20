@@ -26,10 +26,10 @@ const ReviewPage = ({ truck, getTruck, truckError }) => {
   const [newReview, setNewReview] = useState({
     text: '',
     rate: '',
-    owner: '',
-    date: '',
+    truck: truckId,
   })
   const [ postError, setPostError ] = useState('')
+  
 
   // ! Executions
   const handleChange = (e) => {
@@ -42,7 +42,7 @@ const ReviewPage = ({ truck, getTruck, truckError }) => {
     try {
       const response = await authenticated.post('/api/reviews/', newReview)
       // Update the reviews state
-      setNewReview({ text: '', rate: '', owner: '', date: new Date().toISOString() })
+      setNewReview({ text: '', rate: '', truck: truckId })
       setReviews([...reviews, response.data])
       getTruck()
     } catch (err) {
