@@ -14,6 +14,8 @@ import { Container, Row, Col, Card, Button } from 'react-bootstrap'
 import PageNavBar from '../common/PageNavBar'
 
 
+
+
 const TruckSingle = () => {
   
   // ! Variables
