@@ -8,6 +8,7 @@ import Spinner from '../common/Spinner'
 
 // Bootstrap
 import { Container, Row, Col, Card, Button } from 'react-bootstrap'
+import Badge from 'react-bootstrap/Badge'
 
 
 const TruckCard = () => {
@@ -40,7 +41,9 @@ const TruckCard = () => {
       {Object.keys(truck).length > 0 ?
         <Card style={{ width: '22rem' }}>
           <Card.Body>
-            <Card.Title style={{ color: 'green' }}>{truck.name}</Card.Title>
+            <h1>Example heading <Badge bg="secondary">New</Badge></h1>
+            <Card.Title style={{ color: 'green' }}>
+              {truck.name}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">
               {truck.open} ~ {truck.closed}
             </Card.Subtitle>  
