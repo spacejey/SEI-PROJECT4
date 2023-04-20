@@ -28,7 +28,7 @@ class ReviewListView(APIView):
     @exceptions
     def post(self, request):
         print('REQUEST DATA ->', { **request.data, 'owner': request.user.id })
-        review_to_create = ReviewSerializer(data={ **request.data, 'owner': request.user.id })
+        review_to_create = ReviewSerializer(data={ **request.data, 'owner': request.user.id, 'data': request.data, 'rate': request.rate })
         review_to_create.is_valid(raise_exception=True)
         review_to_create.save()
         return Response(review_to_create.data, status.HTTP_201_CREATED)
