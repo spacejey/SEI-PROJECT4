@@ -60,6 +60,7 @@ const ReviewPage = ({ truck, getTruck, truckError }) => {
 
       <Col as='form'  >
         <Row>
+          <StarRating value={newReview.rate}  onChange={(value) => setNewReview({ ...newReview, rate: value })}/>
           <textarea className="title-input"
             type='text'
             placeholder='Write your review!'
@@ -67,14 +68,15 @@ const ReviewPage = ({ truck, getTruck, truckError }) => {
             value={newReview.text}
             name='text'
           />
-          <StarRating value={newReview.rate}  onChange={(value) => setNewReview({ ...newReview, rate: value })}/>
           <button>Post</button>
+          
         </Row>
       </Col>
       <div className='error'>
         {postError && <Error error={postError} />}
       </div>
-      {/* {reviews ?
+
+      {reviews ?
         reviews.map(review => {
           const { text, rate, owner: { username }, id } = review
           return (
@@ -99,7 +101,7 @@ const ReviewPage = ({ truck, getTruck, truckError }) => {
             <Spinner />
           }
         </>
-      } */}
+      }
     </div>
   )
 }
