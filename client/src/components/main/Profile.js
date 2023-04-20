@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 //Bootstrap
 import Form from 'react-bootstrap/Form'
@@ -15,8 +15,8 @@ import ProfileImage from './ProfileImage'
 const Profile = ({ getUser, userError, setUserError }) => {
 
   // ! Variables
-  const { userId } = useParams()
   const navigate = useNavigate()
+  const { userId } = useParams()
 
   // ! State
   const [ user, setUser ] = useState(null)
@@ -40,7 +40,7 @@ const Profile = ({ getUser, userError, setUserError }) => {
       }
     }
     getReviews()
-  }, [])
+  }, [userId])
 
     
   return (
@@ -49,8 +49,8 @@ const Profile = ({ getUser, userError, setUserError }) => {
         <div className='info'>
           {user ?
             <>
-              <ProfileImage userId={userId} getUser={getUser} user={user} setUserError={setUserError} />
-              <p> {user && <div> Hello, {user.username} </div>} </p>
+              <ProfileImage userId={user._id} getUser={getUser} user={user} setUserError={setUserError} />
+              <div> {user && <div> Hello, {user.username} </div>} </div>
               <div className='info-username-email'>
                 <h3>Username: @{user.username}</h3>
                 <h3>Email: {user.email}</h3>

@@ -26,8 +26,14 @@ class GetUsersView(APIView):
     
 class userDetailView(APIView):
     # PUT USERS
-    # Endpoint: PUT /api/auth/users/:useId
+    # Endpoint: PUT /api/auth/users/:userId
     permission_classes = (IsAuthenticated,)
+
+    @exceptions
+    def get(self, request, id):
+        user = User.objects.get(id=id)
+        serialized_user = UserSerializer(user)
+        return Response(serialized_user.data)
 
     @exceptions
     def put(self, request, id):
