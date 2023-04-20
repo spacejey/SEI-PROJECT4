@@ -46,7 +46,7 @@ const ReviewBox = ({ rate, username, id, text, truckId, getTruck }) => {
 
   const handleDelete = async (e, id) => {
     try {
-      await authenticated.delete(`/api/trucks/${truckId}/reviews/${id}`)
+      await authenticated.delete(`/api/trucks/${truckId}/reviews/`)
       alert('Do you want to delete your comment?')
       getTruck()
     } catch (err) {
@@ -58,7 +58,6 @@ const ReviewBox = ({ rate, username, id, text, truckId, getTruck }) => {
     <div>
       <h4 className='user-name'>@{username}
         <div className='top-buttons'>
-          <button className='edit' onClick={(e) => handleEdit(e)}>Edit</button>
           <button className='delete' onClick={(e) => handleDelete(e, id)}>Delete</button>
         </div>
       </h4>
@@ -67,7 +66,6 @@ const ReviewBox = ({ rate, username, id, text, truckId, getTruck }) => {
           <Col as='form' onSubmit={(e) => handleSubmitEdit(e, id)}>
             <Col className='edit-box'>
               <input type='text' className='edit-input' onChange={handleChangeEdit} value={editedReview.text}/>
-              <button className='save-button'>Save</button>
               {editError && <Error error={editError}/>}
             </Col>
           </Col>
