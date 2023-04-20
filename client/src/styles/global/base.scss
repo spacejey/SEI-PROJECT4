@@ -3,18 +3,18 @@
 }
 
 .site-wrapper{
-  height: 100vh;
+  height: 100%;
+  background: linear-gradient(to bottom, #ffe5b5c2, #f7a4ff6f);
 }
 
 footer {
   position: absolute;
-  bottom: 5px;
+  bottom: 0px;
   width: 100%;
   text-align: center;
 }
 
 @media (max-width: 600px){
-
   footer {
     position: absolute;
     bottom: 5px;

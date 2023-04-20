@@ -2,8 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { GoogleMap, LoadScript, Marker, Autocomplete } from '@react-google-maps/api'
 
 const containerStyle = {
-  width: '95vw',
+  width: '100vw',
   height: '60vh',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  marginBottom: '100px',
 }
 
 const libraries = ['places'] 
@@ -48,13 +52,15 @@ function MapComponent() {
 
 
   return (
-    <LoadScript googleMapsApiKey={ process.env.REACT_APP_GOOGLE_MAPS_API_KEY } libraries={libraries}>
-      <GoogleMap mapContainerStyle={containerStyle} center={currentPosition} zoom={13}>
-        {markers.map((marker, index) => (
-          <Marker key={index} position={marker.position} />
-        ))}
-      </GoogleMap>
-    </LoadScript>
+    <div className='map-components'>
+      <LoadScript googleMapsApiKey={ process.env.REACT_APP_GOOGLE_MAPS_API_KEY } libraries={libraries}>
+        <GoogleMap mapContainerStyle={containerStyle} center={currentPosition} zoom={13}>
+          {markers.map((marker, index) => (
+            <Marker key={index} position={marker.position} />
+          ))}
+        </GoogleMap>
+      </LoadScript>
+    </div>
   )
 }
 
