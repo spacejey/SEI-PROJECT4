@@ -43,7 +43,7 @@ const Profile = ({ user, userError, setUserError }) => {
         <Form.Label>
           {users.map(user => (
             <div key={user.id}>
-              <p>{user.username}</p>
+              <p>Hello, {user.username}</p>
             </div>
           ))}
         </Form.Label>

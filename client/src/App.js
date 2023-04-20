@@ -44,7 +44,6 @@ const App = () => {
   return (
     <div className='site-wrapper'>
       <BrowserRouter>
-        <PageNavbar className='navbar' />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register/" element={<Register />} />
@@ -56,7 +55,6 @@ const App = () => {
           <Route path="/user/:userId/" element={<Profile getUser={getUser} user={user} userError={userError} setUserError={setUserError} />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
-        <Footer />
       </BrowserRouter>
     </div>
   )

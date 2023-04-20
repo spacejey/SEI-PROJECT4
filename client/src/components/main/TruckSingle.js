@@ -11,6 +11,7 @@ import Reviews from './Reviews'
 
 // Bootstrap
 import { Container, Row, Col, Card, Button } from 'react-bootstrap'
+import PageNavBar from '../common/PageNavBar'
 
 
 const TruckSingle = () => {
@@ -39,6 +40,7 @@ const TruckSingle = () => {
 
   return (
     <Container  className="d-flex justify-content-center align-items-center">
+      <PageNavBar />
       <Row>
         <Col xs={{ span: 10, offset: 1 }} sm={{ span: 10, offset: 3 }} md={{ span: 10, offset: 2 }}>
           <TruckCard />

@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import { FaHome } from 'react-icons/fa'
+import { MdAccountCircle } from 'react-icons/md'
 
 // Bootstrap
 import Container from 'react-bootstrap/Container'
@@ -9,7 +11,6 @@ import Button from 'react-bootstrap/Button'
 
 function PageNavBar() {
 
-  const noNav = ['/', '/login', '/register']
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   useEffect(() => {
@@ -24,27 +25,28 @@ function PageNavBar() {
 
   return (
     <>
-      {!noNav.includes(location.pathname) &&
-      <Navbar bg="light" variant="light" >
+      <Navbar bg="white" variant="light" >
         <Container>
-          <Navbar.Brand href="/map">Navbar</Navbar.Brand>
-          <Nav className="me-auto">
-            {isLoggedIn ? (
-              <>
-                <Nav.Link href="/user/:userId">Profile</Nav.Link>
-                <Button onClick={handleLogout}>Logout</Button>
-              </>
-            ) : (
-              <>
-                <Nav.Link href="/login">Log In</Nav.Link>
-                <Nav.Link href="/register">Sign In</Nav.Link>
-              </>
-            )
-            }
-          </Nav>
+          <div className="d-flex justify-content-between w-100">
+            <Navbar.Brand href="/map"><FaHome /></Navbar.Brand>
+            <div className="d-flex">
+              <Nav className="me-auto">
+                {isLoggedIn ? (
+                  <Nav.Link href="/user/:userId" className='profile-photo'><MdAccountCircle size={25} /></Nav.Link>
+                ) : (
+                  <>
+                    <Nav.Link href="/login">Log In</Nav.Link>
+                    <Nav.Link href="/register">Sign In</Nav.Link>
+                  </>
+                )}
+              </Nav>
+              {isLoggedIn && (
+                <Nav.Link href="#" onClick={handleLogout}>Logout</Nav.Link>
+              )}
+            </div>
+          </div>
         </Container>
       </Navbar>
-      }
     </>
   )
 }
