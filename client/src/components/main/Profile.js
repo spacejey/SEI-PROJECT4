@@ -44,30 +44,34 @@ const Profile = ({ getUser, userError, setUserError }) => {
 
     
   return (
-    <Form >
-      <Form.Group className="mb-3">
-        <div className='info'>
-          {user ?
-            <>
-              <ProfileImage userId={user._id} getUser={getUser} user={user} setUserError={setUserError} />
-              <div> {user && <div> Hello, {user.username} </div>} </div>
-              <div className='info-username-email'>
-                <h3>Username: @{user.username}</h3>
-                <h3>Email: {user.email}</h3>
-              </div>
-            </>
-            :
-            <>
-              {userError ?
-                <Error error={userError} />
-                :
-                <Spinner />}
-            </>
-          }
-        </div>
-        <Button>Check my reviews</Button>
-      </Form.Group>
-    </Form>
+    <div className='profile'>
+      <Form >
+        <Form.Group className="mb-3">
+          <div className='info'>
+            {user ?
+              <>
+                <ProfileImage userId={user._id} getUser={getUser} user={user} setUserError={setUserError} />
+                <div> 
+                  {user && <div> Hello, {user.username} </div>} 
+                </div>
+                <div className='info-username-email'>
+                  <h3>Username: @{user.username}</h3>
+                  <h3>Email: {user.email}</h3>
+                </div>
+              </>
+              :
+              <>
+                {userError ?
+                  <Error error={userError} />
+                  :
+                  <Spinner />}
+              </>
+            }
+          </div>
+          <Button>Check my reviews</Button>
+        </Form.Group>
+      </Form>
+    </div>
   )
 }
 

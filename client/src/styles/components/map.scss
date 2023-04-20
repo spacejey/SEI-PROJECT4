@@ -1,5 +1,34 @@
 .map-title{
   font-family: $main-font;
-  color: rgb(138, 39, 173);
+  color: rgb(108, 163, 97);
   font-size: 50px;
+  -webkit-text-stroke: 0.8px #141c19;
+}
+
+.card {
+  position: relative;
+  border-radius: 25px;
+  background: #fff;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+  padding: 25px;
+  margin: 25px;
+  overflow: hidden;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+}
+
+.card-title {
+  font-family: $main-font;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.card-text {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: #777;
 }
