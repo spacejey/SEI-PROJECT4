@@ -17,6 +17,7 @@ class JWTAuthentication(BaseAuthentication):
             return None
         token = auth_header.replace('Bearer ', '')
         try:
+            print(settings.SECRET_KEY)
             payload = jwt.decode(token, settings.SECRET_KEY, algorithms='HS256')
             user = User.objects.get(pk=payload.get('sub'))
         except jwt.exceptions.InvalidSignatureError as e:

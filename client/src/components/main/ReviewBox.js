@@ -34,7 +34,7 @@ const ReviewBox = ({ rate, username, id, text, truckId, getTruck }) => {
   const handleSubmitEdit = async (e, id) => {
     e.preventDefault()
     try {
-      await authenticated.put(`/api/trucks/${truckId}/reviews/${id}`, editedReview)
+      await authenticated.put(`/api/reviews/${id}/`, editedReview)
       setEditedReview({ text: '' })
       getTruck()
       setEditCheck(false)

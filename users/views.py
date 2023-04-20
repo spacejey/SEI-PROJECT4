@@ -24,7 +24,19 @@ class GetUsersView(APIView):
         serializer = UserSerializer(request.user)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
+class userDetailView(APIView):
+    # PUT USERS
+    # Endpoint: PUT /api/auth/users/:useId
+    permission_classes = (IsAuthenticated,)
 
+    @exceptions
+    def put(self, request, id):
+        user = User.objects.get(id=id)
+        serialized_user = UserSerializer(user, request.data, partial=True)
+        serialized_user.is_valid(raise_exception=True)
+        serialized_user.save()
+        return Response(serialized_user.data)
+    
 class RegisterView(APIView):
     # REGISTER ROUTE
     # Endpoint: POST /api/auth/register/
