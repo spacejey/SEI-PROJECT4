@@ -34,11 +34,11 @@ authenticated.interceptors.request.use(config => {
   return config
 })
 
-export const userIsOwner = (comment) => {
+export const userIsOwner = (review) => {
   const payload = getPayload()
   if (!payload) return
-  if (comment){
-    return payload.sub === comment.owner._id
+  if (review){
+    return payload.sub === review.owner._id
   }
 }
 
