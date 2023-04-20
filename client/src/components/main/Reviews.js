@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
@@ -11,19 +11,25 @@ import Col from 'react-bootstrap/Col'
 import { authenticated, userIsOwner } from '../../helpers/auth'
 import Spinner from '../common/Spinner'
 import Error from '../common/Error'
+import StarRating from '../main/StarRating'
+import ReviewBox from './ReviewBox'
 
 
 
 const ReviewPage = ({ truck, getTruck, truckError }) => {
+  
+  // Variables
   const { truckId } = useParams()
+
+  // States
   const [reviews, setReviews] = useState([])
   const [newReview, setNewReview] = useState({
     text: '',
     rate: '',
+    owner: '',
+    date: '',
   })
   const [ postError, setPostError ] = useState('')
-
-
 
   // ! Executions
   const handleChange = (e) => {
@@ -31,29 +37,28 @@ const ReviewPage = ({ truck, getTruck, truckError }) => {
     setPostError('')
   }
 
-
-
-
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
       const response = await authenticated.post('/api/reviews/', newReview)
-      
       // Update the reviews state
-      setNewReview({ text: '' })
+      setNewReview({ text: '', rate: '', owner: '', date: new Date().toISOString() })
       setReviews([...reviews, response.data])
+      getTruck()
     } catch (err) {
       console.log(err.message)
-      setPostError()
+      setPostError('')
     }
+    console.log('RATE!!!!=>', newReview)
   }
 
 
 
 
   return (
-    <div>
-      <Col as='form' onSubmit={handleSubmit} >
+    <div onSubmit={handleSubmit}>
+
+      <Col as='form'  >
         <Row>
           <textarea className="title-input"
             type='text'
@@ -62,17 +67,39 @@ const ReviewPage = ({ truck, getTruck, truckError }) => {
             value={newReview.text}
             name='text'
           />
-          <select name="rate" onChange={handleChange} value={newReview.rate}>
-            <option value="" defaultValue disabled>select rating</option>
-            <option value="" defaultValue disabled>1</option>
-            <option value="" defaultValue disabled>2</option>
-            <option value="" defaultValue disabled>3</option>
-            <option value="" defaultValue disabled>4</option>
-            <option value="" defaultValue disabled>5</option>
-          </select>
+          <StarRating value={newReview.rate}  onChange={(value) => setNewReview({ ...newReview, rate: value })}/>
           <button>Post</button>
         </Row>
       </Col>
+      <div className='error'>
+        {postError && <Error error={postError} />}
+      </div>
+      {/* {reviews ?
+        reviews.map(review => {
+          const { text, rate, owner: { username }, id } = review
+          return (
+            <Fragment key={id}>
+              {userIsOwner(review) ?
+                <ReviewBox username={username} truck={truck} getTruck={getTruck} truckError={truckId} />
+                :
+                <div className='reviews-section'>
+                  <h4 className='user-name'>{username}</h4>
+                  <p className='posted-reviews'>{rate}</p>
+                  <p className='posted-reviews'>{text}</p>
+                </div>
+              }
+            </Fragment>
+          )
+        })
+        :
+        <>
+          {truckError ?
+            <Error error={truckError} />
+            :
+            <Spinner />
+          }
+        </>
+      } */}
     </div>
   )
 }

@@ -15,16 +15,29 @@ import PageNavBar from '../common/PageNavBar'
 
 
 const TruckSingle = () => {
+  
+  // ! Variables
+  const { truckId } = useParams()
+  const navigate = useNavigate()
 
   // ! State
   const [ truck, setTruck ] = useState({})
   const [ truckError, setTruckError ] = useState('')
 
-  // ! Variables
-  const { truckId } = useParams()
-
+  // On Mount
+  const getTruck = useCallback(async () => {
+    try {
+      const { data } = await axios.get(`/api/trucks/${truckId}`)
+      setTruck(data)
+      console.log(data)
+    } catch (err) {
+      console.log(err)
+      setTruckError(err.message)
+    }
+  }, [truckId])
 
   useEffect(() => {
+    !isAuthenticated() && navigate('/')
     const getTruck = async () => {
       try {
         const { data } = await axios.get(`/api/trucks/${truckId}/`)
@@ -56,7 +69,7 @@ const TruckSingle = () => {
           </Card>
           <h5>Reviews</h5>
           <Card>
-            <Reviews />
+            <Reviews truck={truck} getTruck={getTruck} truckError={truckError}/>
           </Card>
         </Col>
       </Row>

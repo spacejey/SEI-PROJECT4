@@ -1,7 +1,7 @@
 from django.db import models
 
 class Menu(models.Model):
-    truck_id = models.ForeignKey(
+    truck = models.ForeignKey(
         'trucks.Truck',
         on_delete=models.CASCADE,
         related_name='menu'
