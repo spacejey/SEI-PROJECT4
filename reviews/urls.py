@@ -3,6 +3,6 @@ from .views import ReviewListView, ReviewDetailView
 
 # api/reviews/
 urlpatterns = [
-    path('reviews/', ReviewListView.as_view()),
-    path('reviews/<int:id>/', ReviewDetailView.as_view()),
+    path('', ReviewListView.as_view()),
+    path('<int:id>/', ReviewDetailView.as_view()),
 ]

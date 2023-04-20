@@ -6,6 +6,7 @@ from rest_framework.exceptions import PermissionDenied
 import jwt
 from datetime import datetime, timedelta
 from django.conf import settings
+from rest_framework.permissions import IsAuthenticated
 
 from lib.exceptions import exceptions
 
@@ -16,10 +17,11 @@ User = get_user_model()
 class GetUsersView(APIView):
     # GET USERS
     # Endpoint: GET /api/auth/users/
+    permission_classes = (IsAuthenticated,)
+
     @exceptions
     def get(self, request):
-        users = User.objects.all()
-        serializer = UserSerializer(users, many=True)
+        serializer = UserSerializer(request.user)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
 

@@ -19,6 +19,7 @@ const ReviewPage = ({ truck, getTruck, truckError }) => {
   const [reviews, setReviews] = useState([])
   const [newReview, setNewReview] = useState({
     text: '',
+    rate: '',
   })
   const [ postError, setPostError ] = useState('')
 
@@ -36,12 +37,11 @@ const ReviewPage = ({ truck, getTruck, truckError }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await authenticated.post('api/reviews/', newReview)
+      const response = await authenticated.post('/api/reviews/', newReview)
       
       // Update the reviews state
       setNewReview({ text: '' })
       setReviews([...reviews, response.data])
-
     } catch (err) {
       console.log(err.message)
       setPostError()
@@ -59,36 +59,20 @@ const ReviewPage = ({ truck, getTruck, truckError }) => {
             type='text'
             placeholder='Write your review!'
             onChange={handleChange}
-            name='title'
+            value={newReview.text}
+            name='text'
           />
+          <select name="rate" onChange={handleChange} value={newReview.rate}>
+            <option value="" defaultValue disabled>select rating</option>
+            <option value="" defaultValue disabled>1</option>
+            <option value="" defaultValue disabled>2</option>
+            <option value="" defaultValue disabled>3</option>
+            <option value="" defaultValue disabled>4</option>
+            <option value="" defaultValue disabled>5</option>
+          </select>
           <button>Post</button>
         </Row>
       </Col>
-      {/* {truck.reviews ?
-        truck.reviews.map(review => {
-          const { text, owner: { username }, id } = review
-          return (
-            <Col key={id}>
-              {userIsOwner(review) ?
-                <Row username={username} id={id} text={text} />
-                :
-                <div>
-                  <h4>@{username}</h4>
-                  <p>{text}</p>
-                </div>
-              }
-            </Col>
-          )
-        })
-        :
-        <>
-          {truckError ?
-            <Error error={truckError} />
-            :
-            <Spinner />
-          }
-        </>
-      } */}
     </div>
   )
 }

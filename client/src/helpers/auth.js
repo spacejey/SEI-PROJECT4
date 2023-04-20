@@ -1,7 +1,7 @@
 import { Buffer } from 'buffer'
 import axios from 'axios'
 
-const tokenName = 'SEI-PRIJECT4'
+const tokenName = 'SEI-PROJECT4'
 
 // ! Get token
 export const getPayload = () => {

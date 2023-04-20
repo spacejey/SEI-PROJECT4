@@ -3,19 +3,19 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 
 // Custom imports
-import { includesUserId, isAuthenticated } from '../../helpers/auth'
+import { includesUserId, isAuthenticated, authenticated } from '../../helpers/auth'
 
 //Bootstrap
 import Form from 'react-bootstrap/Form'
 
-const Profile = ({ user, userError, setUserError }) => {
+const Profile = () => {
 
   // ! Variables
   const { userId } = useParams()
   const navigate = useNavigate()
 
   // ! State
-  const [ users, setUsers ] = useState([])
+  const [ user, setUser ] = useState(null)
   const [ userReviews, setUserReviews ] = useState([])
   const [ stagesError, setStagesError ] = useState('')
   
@@ -25,8 +25,8 @@ const Profile = ({ user, userError, setUserError }) => {
     // !isAuthenticated() && navigate('/')
     const getReviews = async () => {
       try {
-        const { data } = await axios.get('/api/auth/users/')
-        setUsers(data)
+        const { data } = await authenticated.get('/api/auth/users/')
+        setUser(data)
         setUserReviews(userReviews)
       } catch (err) {
         console.log(err)
@@ -41,11 +41,11 @@ const Profile = ({ user, userError, setUserError }) => {
     <Form >
       <Form.Group className="mb-3">
         <Form.Label>
-          {users.map(user => (
-            <div key={user.id}>
-              <p>Hello, {user.username}</p>
+          {user &&
+            <div>
+              {user.username}
             </div>
-          ))}
+          }
         </Form.Label>
         <Form.Text className="text-muted">
         </Form.Text>
