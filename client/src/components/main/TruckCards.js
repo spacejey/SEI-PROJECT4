@@ -7,11 +7,10 @@ import Error from '../common/Error'
 import Spinner from '../common/Spinner'
 
 // Bootstrap
-import { Container, Row, Col, Card, Button } from 'react-bootstrap'
-import Badge from 'react-bootstrap/Badge'
+import { Container, Row, Col, Card, Button, Badge } from 'react-bootstrap'
 
 
-const TruckCard = () => {
+const TruckForm = () => {
 
   // ! State
   const [ truck, setTruck ] = useState({})
@@ -37,36 +36,29 @@ const TruckCard = () => {
 
 
   return (
-    <Container  className="d-flex justify-content-center align-items-center">
-      {Object.keys(truck).length > 0 ?
-        <Card style={{ width: '22rem' }}>
-          <Card.Body>
-            <h1>Example heading <Badge bg="secondary">New</Badge></h1>
-            <Card.Title style={{ color: 'green' }}>
-              {truck.name}</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">
-              {truck.open} ~ {truck.closed}
-            </Card.Subtitle>  
-            <div>
-              {Object.keys(truck).filter(day => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].includes(day)).map((day) => {
-                if (day !== 'name' && day !== 'open' && day !== 'closed' && truck[day]) {
-                  return <p key={day}>{day}</p>
-                }
-                return null
-              })}
-            </div>
-          </Card.Body>
-        </Card>
-        :
-        <>
-          {error ?
-            <Error error={error} />
-            :
-            <Spinner />}
-        </>
-      }
-    </Container>
+    <Card className="my-3 cloud-card" style={{ width: '80vw' }}>
+      <Card.Body>
+        <Card.Subtitle className="mb-2 text-muted" style={{ color: 'rgb(50, 50, 50)' }}>
+          <Badge bg="warning" text="white" style={{ fontSize: '0.7rem' }}>OPEN </Badge>  
+          {Object.keys(truck)
+            .filter(day => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].includes(day))
+            .map((day, index) => {
+              if (day !== 'name' && day !== 'open' && day !== 'closed' && truck[day]) {
+                return <span key={day}>{index > 0 && ' '} {day} </span>
+              } 
+              return null
+            })}
+          | {truck.open} ~ {truck.closed}
+          <Card.Title className="truck-name" style={{ color: 'rgb(80, 80, 80)', marginTop: '20px' }}>
+            {truck.name}
+          </Card.Title>
+          <Card.Subtitle className="mb-2 text-muted">
+            {truck.description}
+          </Card.Subtitle>
+        </Card.Subtitle>
+      </Card.Body>
+    </Card>
   )
 }
 
-export default TruckCard
+export default TruckForm

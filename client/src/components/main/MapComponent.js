@@ -8,7 +8,7 @@ const containerStyle = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  marginBottom: '100px',
+  marginBottom: '50px',
 }
 
 const libraries = ['places'] 
