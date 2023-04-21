@@ -35,7 +35,7 @@ const App = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios.get('/api/admin/') // * <-- replace with your endpoint
+      const { data } = await axios.get('/api/trucks/') // * <-- replace with your endpoint
     }
     getData()
   })

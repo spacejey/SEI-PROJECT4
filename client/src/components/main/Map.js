@@ -25,6 +25,8 @@ const Map = () => {
   // ! State
   const [ trucks, setTrucks ] = useState([])
   const [ error, setError ] = useState('')
+  
+
 
   // ! On Mount
   useEffect(() => {
@@ -72,7 +74,7 @@ const Map = () => {
                   </Card.Subtitle>
                   <Card.Title className="truck-name" style={{ color: 'rgb(80, 80, 80)', marginTop: '20px' }}>
                     {truck.name}
-                  </Card.Title>
+                  </Card.Title> 
                   <Card.Subtitle className="mb-2 text-muted">
                     {truck.description}
                   </Card.Subtitle>

@@ -2,6 +2,7 @@ from django.db import models
 
 class Truck(models.Model):
     name = models.CharField(max_length=50)
+    # image = models.ImageField()
     description = models.TextField(max_length=300)
     Monday = models.BooleanField(default=False)
     Tuesday = models.BooleanField(default=False)
@@ -13,8 +14,8 @@ class Truck(models.Model):
     open = models.TimeField(default='09:00')
     closed = models.TimeField(default='17:00')
     reviewcount = models.IntegerField(default=0)
-    latitude = models.FloatField(default='51.531017363425065')
-    longitude = models.FloatField(default='-0.156907085362684')
+    latitude = models.FloatField(null=True)
+    longitude = models.FloatField(null=True)
 
     def update_review_count(self):
         self.review_count = self.reviews.count()
