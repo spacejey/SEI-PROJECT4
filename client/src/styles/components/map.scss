@@ -5,7 +5,7 @@
   -webkit-text-stroke: 0.8px #141c19;
 }
 
-.card {
+.cloud-card {
   position: relative;
   border-radius: 25px;
   background: #fff;
@@ -14,10 +14,6 @@
   margin: 25px;
   overflow: hidden;
   cursor: pointer;
-  &:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
-  }
 }
 
 .card-title {

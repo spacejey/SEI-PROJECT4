@@ -16,6 +16,7 @@ import Badge from 'react-bootstrap/Badge'
 
 
 
+
 const Map = () => {
 
   // ! Variables

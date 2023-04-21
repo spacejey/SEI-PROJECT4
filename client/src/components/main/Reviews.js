@@ -3,9 +3,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
 // Bootstrap imports
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import { Container, Row, Col, Card, Button } from 'react-bootstrap'
 
 // Custom components
 import { authenticated, userIsOwner } from '../../helpers/auth'
@@ -57,19 +55,22 @@ const ReviewPage = ({ truck, getTruck, truckError }) => {
 
   return (
     <div onSubmit={handleSubmit}>
-
       <Col as='form'  >
         <Row>
-          <StarRating value={newReview.rate}  onChange={(value) => setNewReview({ ...newReview, rate: value })}/>
-          <textarea className="title-input"
-            type='text'
-            placeholder='Write your review!'
-            onChange={handleChange}
-            value={newReview.text}
-            name='text'
-          />
-          <button>Post</button>
-          
+          <div style={{ marginBottom: '30px', display: 'flex', justifyContent: 'flex-end' }}>
+            <StarRating value={newReview.rate}  onChange={(value) => setNewReview({ ...newReview, rate: value })}/>
+          </div>
+          <div className='review-input' style={{ marginBottom: '30px' }} >
+            <textarea className="title-input"
+              type='text'
+              placeholder='Write your review!'
+              onChange={handleChange}
+              value={newReview.text}
+              name='text'
+              style={{ width: '80vw', marginRight: '30px' }}
+            />
+            <button>Post</button>
+          </div>
         </Row>
       </Col>
       <div className='error'>
@@ -80,17 +81,19 @@ const ReviewPage = ({ truck, getTruck, truckError }) => {
         reviews.map(review => {
           const { text, rate, owner: { username }, id } = review
           return (
-            <Fragment key={id}>
-              {userIsOwner(review) ?
-                <ReviewBox username={username} truck={truck} getTruck={getTruck} truckError={truckId} />
-                :
-                <div className='reviews-section'>
-                  <h4 className='user-name'>{username}</h4>
-                  <p className='posted-reviews'>{rate}</p>
-                  <p className='posted-reviews'>{text}</p>
-                </div>
-              }
-            </Fragment>
+            <Card key={id}>
+              <Fragment key={id}>
+                {userIsOwner(review) ?
+                  <ReviewBox username={username} truck={truck} getTruck={getTruck} truckError={truckId} />
+                  :
+                  <div className='reviews-section'>
+                    <h4 className='user-name'>{username}</h4>
+                    <p className='posted-reviews'>Rate: {rate}/ 5</p>
+                    <p className='posted-reviews'>Review: {text}</p>
+                  </div>
+                }
+              </Fragment>
+            </Card>
           )
         })
         :

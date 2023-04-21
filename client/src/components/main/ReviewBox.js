@@ -46,7 +46,7 @@ const ReviewBox = ({ rate, username, id, text, truckId, getTruck }) => {
 
   const handleDelete = async (e, id) => {
     try {
-      await authenticated.delete(`/api/trucks/${truckId}/reviews/`)
+      await authenticated.delete(`/api/reviews/${id}/`)
       alert('Do you want to delete your comment?')
       getTruck()
     } catch (err) {
