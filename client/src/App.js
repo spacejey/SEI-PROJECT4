@@ -7,7 +7,6 @@ import Home from './components/Home'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import Map from './components/main/Map'
-import Trucks from './components/main/Trucks'
 import TruckSingle from './components/main/TruckSingle'
 import Profile from './components/main/Profile'
 import Reviews from './components/main/Reviews'
@@ -49,7 +48,6 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/map" element={<Map />} />
-          <Route path="/trucks" element={<Trucks />} />
           <Route path="/trucks/:truckId" element={<TruckSingle />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/user" element={<Profile />} />

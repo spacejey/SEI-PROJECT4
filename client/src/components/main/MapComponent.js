@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { GoogleMap, LoadScript, Marker, Autocomplete } from '@react-google-maps/api'
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
 
 
 const containerStyle = {
@@ -17,7 +17,16 @@ function MapComponent() {
 
   const [currentPosition, setCurrentPosition] = useState(null)
   const [markers, setMarkers] = useState([])
-  const [searchQuery, setSearchQuery] = useState('')
+
+  // const uluru = { lat: -25.344, lng: 131.031 }
+  // const map = new google.maps.Map(document.getElementById('map'), {
+  //   zoom: 4,
+  //   center: uluru,
+  // })
+  // const marker = new google.maps.Marker({
+  //   position: uluru,
+  //   map: map,
+  // })
   
 
   // Set the default location to depends on user's current lacation
