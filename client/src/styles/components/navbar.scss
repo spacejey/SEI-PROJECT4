@@ -1,3 +1,6 @@
+.navbar{
+  color: rgb(108, 163, 97);
+}
 @media (min-width: 600px){
   .navbar {
     position: fixed;
@@ -5,7 +8,6 @@
     left: 0;
     right: 0;
     z-index: 100;
-    color: #6ca362;
   }
 }
 
@@ -16,6 +18,5 @@
     left: 0;
     right: 0;
     z-index: 100;
-    color: rgb(108, 163, 97);
   }
 }

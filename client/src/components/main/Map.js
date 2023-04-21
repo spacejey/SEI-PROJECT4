@@ -26,7 +26,7 @@ const Map = () => {
 
   // ! On Mount
   useEffect(() => {
-    // !isAuthenticated() && navigate('/')
+    !isAuthenticated() && navigate('/')
     const getTrucks = async () => {
       try {
         const { data } = await axios.get('/api/trucks/')
@@ -41,10 +41,11 @@ const Map = () => {
 
 
   return (
-    <div>  
+    <div className='map-main' style={{ height: '100%' }}>  
+      <PageNavBar />
       <MapComponent/>
       <PageNavBar />
-      <Container>
+      <Container style={{ height: '100vh' }}>
         <h1 className='map-title'>Trucks around of me...</h1>
         {trucks.length > 0 ?
           trucks.map(truck => {
