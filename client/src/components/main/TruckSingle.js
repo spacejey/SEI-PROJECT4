@@ -57,21 +57,18 @@ const TruckSingle = () => {
     <Container  className="d-flex justify-content-center align-items-center container-fluid vh-100">
       <PageNavBar />
       <Row>
-        <Col xs={{ span: 10, offset: 1 }} sm={{ span: 10, offset: 3 }} md={{ span: 10, offset: 2 }}>
+        <Col>
           <TruckCard />
-          <Card.Img variant="top" src="" />
-          <h5>About my truck...</h5>
-          <Card.Body>{truck.image}</Card.Body>
-          <Card>  
-            <Card.Body>{truck.description}</Card.Body>
-          </Card>
-          <h5>Menu...</h5>
-          <Card>
-            <Card.Body>{truck.menu}</Card.Body>
-          </Card>
-          <h5>Reviews</h5>
-          <Card>
-            <Reviews truck={truck} getTruck={getTruck} truckError={truckError}/>
+          <Card className="my-3 cloud-card" style={{ width: '80vw' }}>
+            <div>
+              <span>{truck.image}</span>
+              <Card.Title>About my truck...</Card.Title>
+              <Card.Subtitle style={{ marginBottom: '30px' }}>{truck.description}</Card.Subtitle>
+              <Card.Title >Menu</Card.Title>
+              <Card.Subtitle style={{ marginBottom: '30px' }}>{truck.menu}</Card.Subtitle>
+              <Card.Title>Reviews</Card.Title>
+              <Reviews truck={truck} getTruck={getTruck} truckError={truckError}/>
+            </div>
           </Card>
         </Col>
       </Row>
