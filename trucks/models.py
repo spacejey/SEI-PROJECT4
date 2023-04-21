@@ -13,7 +13,8 @@ class Truck(models.Model):
     open = models.TimeField(default='09:00')
     closed = models.TimeField(default='17:00')
     reviewcount = models.IntegerField(default=0)
-
+    latitude = models.FloatField(default='51.531017363425065')
+    longitude = models.FloatField(default='-0.156907085362684')
 
     def update_review_count(self):
         self.review_count = self.reviews.count()
@@ -21,4 +22,3 @@ class Truck(models.Model):
 
     def __str__(self):
         return self.name
-    

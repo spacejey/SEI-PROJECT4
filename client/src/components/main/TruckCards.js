@@ -25,7 +25,7 @@ const TruckForm = () => {
       try {
         const { data } = await axios.get(`/api/trucks/${truckId}/`)
         setTruck(data)
-        console.log(data)
+        console.log('DATA',data)
       } catch (err) {
         console.log(error)
       }
@@ -37,22 +37,20 @@ const TruckForm = () => {
 
   return (
     <Card className="my-3 cloud-card" style={{ width: '80vw' }}>
-      <Card.Body>
-        <Card.Subtitle className="mb-2 text-muted" style={{ color: 'rgb(50, 50, 50)' }}>
-          <Badge bg="warning" text="white" style={{ fontSize: '0.7rem' }}>OPEN </Badge>  
-          {Object.keys(truck)
-            .filter(day => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].includes(day))
-            .map((day, index) => {
-              if (day !== 'name' && day !== 'open' && day !== 'closed' && truck[day]) {
-                return <span key={day}>{index > 0 && ' '} {day} </span>
-              } 
-              return null
-            })}
-          | {truck.open} ~ {truck.closed}
-          <Card.Title className="truck-name" style={{ color: 'rgb(80, 80, 80)', marginTop: '20px' }}>
-            {truck.name}
-          </Card.Title>
-        </Card.Subtitle>
+      <Card.Body className="mb-2 text-muted" style={{ color: 'rgb(50, 50, 50)' }}>
+        <Badge bg="warning" text="white" style={{ fontSize: '0.7rem' }}>OPEN </Badge>  
+        {Object.keys(truck)
+          .filter(day => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].includes(day))
+          .map((day, index) => {
+            if (day !== 'name' && day !== 'open' && day !== 'closed' && truck[day]) {
+              return <span key={day}>{index > 0 && ' '} {day} </span>
+            } 
+            return null
+          })}
+        | {truck.open} ~ {truck.closed} 
+        <Card.Title className="truck-name" style={{ color: 'rgb(80, 80, 80)', marginTop: '20px' }}>
+          {truck.name}
+        </Card.Title>
       </Card.Body>
     </Card>
   )
