@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
 
@@ -15,18 +16,10 @@ const libraries = ['places']
 
 function MapComponent() {
 
+  // States
   const [currentPosition, setCurrentPosition] = useState(null)
   const [markers, setMarkers] = useState([])
-
-  // const uluru = { lat: -25.344, lng: 131.031 }
-  // const map = new google.maps.Map(document.getElementById('map'), {
-  //   zoom: 4,
-  //   center: uluru,
-  // })
-  // const marker = new google.maps.Marker({
-  //   position: uluru,
-  //   map: map,
-  // })
+  const [ truck, setTruck ] = useState({})
   
 
   // Set the default location to depends on user's current lacation
@@ -37,29 +30,40 @@ function MapComponent() {
         setCurrentPosition({ lat: latitude, lng: longitude })
       },
       () => {
-        // If it's fail, set the default to London
         setCurrentPosition({ lat: 51.5074, lng: -0.1278 })
       }
     )
   })
 
+  useEffect(() => {
+    const getTruck = async () => {
+      try {
+        const { data } = await axios.get('/api/trucks/')
+        setTruck(data)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getTruck()
+  }, [])
 
-  // // When user clicked on the map, Marker has appeared.
-  // function handleMapClick(event) {
-  //   const { latLng } = event
-  //   const latitude = latLng.lat()
-  //   const longitude = latLng.lng()
-  //   setMarkers((markers) => [
-  //     ...markers,
-  //     {
-  //       position: {
-  //         lat: latitude,
-  //         lng: longitude,
-  //       },
-  //     }
-  //   ])
-  // }
-  // console.log(GoogleMap)
+  useEffect(() => {
+    axios.get('/api/trucks/')
+      .then(response => {
+        const markers = response.data.map(truck => {
+          return {
+            position: {
+              lat: truck.latitude,
+              lng: truck.longitude,
+            },
+            title: truck.name,
+          }
+        })
+        setMarkers(markers)
+      })
+      .catch(error => console.log(error))
+  }, [])
+
 
 
   return (
@@ -67,7 +71,7 @@ function MapComponent() {
       <LoadScript googleMapsApiKey={ process.env.REACT_APP_GOOGLE_MAPS_API_KEY } libraries={libraries}>
         <GoogleMap mapContainerStyle={containerStyle} center={currentPosition} zoom={13}>
           {markers.map((marker, index) => (
-            <Marker key={index} position={marker.position} />
+            <Marker key={index} position={marker.position} title={marker.title} />
           ))}
         </GoogleMap>
       </LoadScript>
