@@ -1,0 +1,13 @@
+[
+{
+  "model": "reviews.review",
+  "pk": 2,
+  "fields": {
+    "owner": 1,
+    "truck": 1,
+    "rate": 5,
+    "date": "2023-04-22T19:15:11.449Z",
+    "text": "haHA"
+  }
+}
+]
