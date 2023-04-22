@@ -20,11 +20,4 @@ class Review(models.Model):
 
     def __str__(self):
       return f'{self.owner} - {self.rate}'
-    
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-        self.truck.update_review_count()
-    
-    def delete(self, *args, **kwargs):
-        super().delete(*args, **kwargs)
-        self.truck.update_review_count()
+  

@@ -1,0 +1,11 @@
+[
+{
+  "model": "menu.menu",
+  "pk": 1,
+  "fields": {
+    "name": "Ice Bar",
+    "price": "3.00",
+    "notes": "good"
+  }
+}
+]
