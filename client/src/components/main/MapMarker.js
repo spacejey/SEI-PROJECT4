@@ -35,6 +35,7 @@ function MapMarker() {
       .catch(error => console.log(error))
   }, [])
 
+
   
   function handleMarkerClick(marker) {
     setMarkers((prevMarkers) =>
@@ -47,6 +48,8 @@ function MapMarker() {
     )
     setSelectedMarker(marker)
   }
+
+
   
   return (
     <Container>
