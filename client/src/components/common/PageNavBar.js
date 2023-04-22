@@ -14,12 +14,12 @@ function PageNavBar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   useEffect(() => {
-    const token = localStorage.getItem('SEI-PROJECT4')
+    const token = localStorage.getItem('SEI-PROJECT')
     setIsLoggedIn(!!token) // token이 있으면 true, 없으면 false
   }, [])
 
   const handleLogout = (e) => {
-    localStorage.removeItem('SEI-PROJECT4')
+    localStorage.removeItem('SEI-PROJECT')
     setIsLoggedIn(false)
   }
 
