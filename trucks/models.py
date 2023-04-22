@@ -24,7 +24,7 @@ class Truck(models.Model):
     reviewcount = models.IntegerField(default=0)
     latitude = models.FloatField(null=True)
     longitude = models.FloatField(null=True)
-    menu_name = models.ManyToManyField('menu.Menu', related_name='trucks', default='a', null=True)
+    menu_name = models.ManyToManyField('menu.Menu', related_name='trucks', default='a')
     def update_reviewcount(self):
         self.reviewcount = self.reviews.count()
         self.save()
