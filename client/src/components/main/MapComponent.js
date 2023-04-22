@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
+import { GoogleMap, Marker } from '@react-google-maps/api'
 
 // Components
 import MapMarker from './MapMarker'
@@ -42,7 +42,7 @@ function MapComponent() {
         setCurrentPosition({ lat: latitude, lng: longitude })
       },
       (error) => {
-        Error(error)
+        console.error(error)
         alert('Not Found Current Location')
       }
     )
@@ -51,14 +51,14 @@ function MapComponent() {
 
   return (
     <div className='map-components'>
-      <LoadScript googleMapsApiKey={ process.env.REACT_APP_GOOGLE_MAPS_API_KEY } libraries={libraries}>
-        <GoogleMap mapContainerStyle={containerStyle} center={currentPosition} zoom={14}>
-          <MapMarker />
-          {currentPosition && (
-            <Marker position={currentPosition} icon={redCircle}/>
-          )}
-        </GoogleMap>
-      </LoadScript>
+      {/* <LoadScript googleMapsApiKey={ process.env.REACT_APP_GOOGLE_MAPS_API_KEY } libraries={libraries}> */}
+      <GoogleMap googleMapsApiKey={ process.env.REACT_APP_GOOGLE_MAPS_API_KEY } libraries={libraries}mapContainerStyle={containerStyle} center={currentPosition} zoom={14}>
+        <MapMarker />
+        {currentPosition && (
+          <Marker position={currentPosition} icon={redCircle}/>
+        )}
+      </GoogleMap>
+      {/* </LoadScript> */}
     </div>
   )
 }

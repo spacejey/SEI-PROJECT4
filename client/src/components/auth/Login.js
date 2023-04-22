@@ -29,7 +29,7 @@ const Login = () => {
     e.preventDefault()
     try {
       const { data } = await axios.post('/api/auth/login/', { ...formFields })
-      localStorage.setItem('SEI-PROJECT4', data.token)
+      localStorage.setItem('SEI-PROJECT', data.token)
       console.log(data)
       navigate('/map')
     } catch (err) {
