@@ -2,7 +2,6 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { Marker, InfoWindow } from '@react-google-maps/api'
 import { Container } from 'react-bootstrap'
-import Geocode from 'react-geocode'
 
 
 
@@ -12,7 +11,6 @@ function MapMarker() {
   // States
   const [markers, setMarkers] = useState([])
   const [selectedMarker, setSelectedMarker] = useState(null)
-  const [currentPosition, setCurrentPosition] = useState(null)
   
   
   useEffect(() => {
