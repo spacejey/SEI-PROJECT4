@@ -30,28 +30,31 @@ const redCircle = {
 
 
 function MapComponent() {
-
   // States
   const [currentPosition, setCurrentPosition] = useState(null)
+  
+  function handleApiLoad(map, maps) {
+  
+    // Set the default location to depends on user's current lacation
+    useEffect(() => {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords
+          setCurrentPosition({ lat: latitude, lng: longitude })
+        },
+        (error) => {
+          console.error(error)
+          alert('Not Found Current Location')
+        }
+      )
+    }, [])
 
-  // Set the default location to depends on user's current lacation
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const { latitude, longitude } = position.coords
-        setCurrentPosition({ lat: latitude, lng: longitude })
-      },
-      (error) => {
-        console.error(error)
-        alert('Not Found Current Location')
-      }
-    )
-  }, [])
+  }
 
 
   return (
     <div className='map-components'>
-      <LoadScript googleMapsApiKey={ process.env.REACT_APP_GOOGLE_MAPS_API_KEY } libraries={libraries}>
+      <LoadScript onLoad={handleApiLoad} googleMapsApiKey={ process.env.REACT_APP_GOOGLE_MAPS_API_KEY } libraries={libraries}>
         <GoogleMap mapContainerStyle={containerStyle} center={currentPosition} zoom={14}>
           <MapMarker />
           {currentPosition && (
