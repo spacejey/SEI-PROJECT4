@@ -3,14 +3,9 @@
   "model": "trucks.truck",
   "pk": 1,
   "fields": {
-<<<<<<< HEAD
-    "name": "TEST",
-    "description": "TEST",
-=======
     "name": "truck",
     "image": "images/Habana.jpg",
     "description": "jk's",
->>>>>>> 078212006b22fc6fa347df84094bdf8e9b7be752
     "Monday": false,
     "Tuesday": false,
     "Wednesday": false,
@@ -22,14 +17,10 @@
     "closed": "17:00:00",
     "reviewcount": 0,
     "latitude": 50.0,
-<<<<<<< HEAD
-    "longitude": 50.0
-=======
     "longitude": 50.0,
-    "menu_name": [
+    "menu": [
       1
     ]
->>>>>>> 078212006b22fc6fa347df84094bdf8e9b7be752
   }
 }
 ]

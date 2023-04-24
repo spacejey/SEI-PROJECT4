@@ -3,28 +3,16 @@
   "model": "users.user",
   "pk": 1,
   "fields": {
-<<<<<<< HEAD
-    "password": "pbkdf2_sha256$600000$PywyGHo4SQWQFGEkdrT9Uf$VFYwg5RSbkfvHORp+rrwErK5C3MvSzhmeiBbkzso7Rc=",
-    "last_login": "2023-04-23T16:49:52.991Z",
-    "is_superuser": true,
-    "username": "JK",
-=======
     "password": "pbkdf2_sha256$600000$sMLC0EFUftCBlX9ygEKBkx$21b+F4RENewX6Yy/T3KSBWKOOSn7rMU9Y/mQTxTfu1U=",
     "last_login": "2023-04-22T19:12:16.144Z",
     "is_superuser": true,
     "username": "test",
->>>>>>> 078212006b22fc6fa347df84094bdf8e9b7be752
     "first_name": "",
     "last_name": "",
     "is_staff": true,
     "is_active": true,
-<<<<<<< HEAD
-    "date_joined": "2023-04-23T16:49:00.085Z",
-    "email": "JK@email.com",
-=======
     "date_joined": "2023-04-22T19:11:44.098Z",
     "email": "test@email.com",
->>>>>>> 078212006b22fc6fa347df84094bdf8e9b7be752
     "image": "",
     "groups": [],
     "user_permissions": []

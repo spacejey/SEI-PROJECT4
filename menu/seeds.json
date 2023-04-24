@@ -3,16 +3,9 @@
   "model": "menu.menu",
   "pk": 1,
   "fields": {
-<<<<<<< HEAD
-    "truck": 1,
-    "name": "TEST-MENU",
-    "price": "3.00",
-    "notes": "TEST-MENU"
-=======
     "name": "Ice Bar",
     "price": "3.00",
     "notes": "good"
->>>>>>> 078212006b22fc6fa347df84094bdf8e9b7be752
   }
 }
 ]
