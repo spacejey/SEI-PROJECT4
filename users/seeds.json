@@ -1,0 +1,21 @@
+[
+{
+  "model": "users.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$PywyGHo4SQWQFGEkdrT9Uf$VFYwg5RSbkfvHORp+rrwErK5C3MvSzhmeiBbkzso7Rc=",
+    "last_login": "2023-04-23T16:49:52.991Z",
+    "is_superuser": true,
+    "username": "JK",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-04-23T16:49:00.085Z",
+    "email": "JK@email.com",
+    "image": "",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

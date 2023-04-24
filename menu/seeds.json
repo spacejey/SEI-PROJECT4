@@ -1,0 +1,12 @@
+[
+{
+  "model": "menu.menu",
+  "pk": 1,
+  "fields": {
+    "truck": 1,
+    "name": "TEST-MENU",
+    "price": "3.00",
+    "notes": "TEST-MENU"
+  }
+}
+]
