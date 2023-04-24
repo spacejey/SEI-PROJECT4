@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
+import { GoogleMap, LoadScript, Marker, useJsApiLoader } from '@react-google-maps/api'
 
 // Components
 import MapMarker from './MapMarker'
@@ -51,17 +51,23 @@ function MapComponent() {
 
   }
 
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    libraries: libraries,
+  })
+
 
   return (
     <div className='map-components'>
-      <LoadScript onLoad={handleApiLoad} googleMapsApiKey={ process.env.REACT_APP_GOOGLE_MAPS_API_KEY } libraries={libraries}>
+      { isLoaded && 
         <GoogleMap mapContainerStyle={containerStyle} center={currentPosition} zoom={14}>
           <MapMarker />
           {currentPosition && (
             <Marker position={currentPosition} icon={redCircle}/>
           )}
         </GoogleMap>
-      </LoadScript>
+      }
     </div>
   )
 }

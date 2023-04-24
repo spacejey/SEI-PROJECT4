@@ -1,14 +1,6 @@
 from django.db import models
 
 class Truck(models.Model):
-    # menu_menu = models.ForeignKey(
-    #     'menu.Menu',
-    #     on_delete=models.CASCADE,
-    #     related_name='trucks',
-    #     # blank=True,
-    #     null=True,
-    #     # default=None
-    # )
     name = models.CharField(max_length=50)
     image = models.ImageField(upload_to='images/', default='')
     description = models.TextField(max_length=300)
@@ -24,11 +16,10 @@ class Truck(models.Model):
     reviewcount = models.IntegerField(default=0)
     latitude = models.FloatField(null=True)
     longitude = models.FloatField(null=True)
-    menu_name = models.ManyToManyField('menu.Menu', related_name='trucks', default='a')
+    menu = models.ManyToManyField('menu.Menu', related_name='trucks', default='')
     def update_reviewcount(self):
         self.reviewcount = self.reviews.count()
         self.save()
-
     def __str__(self):
         return self.name
     

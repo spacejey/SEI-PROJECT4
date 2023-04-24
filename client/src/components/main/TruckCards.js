@@ -37,7 +37,7 @@ const TruckForm = () => {
 
   return (
     <Card className="my-3 cloud-card" style={{ width: '80vw' }}>
-      <Card.Body className="mb-2 text-muted" style={{ color: 'rgb(50, 50, 50)' }}>
+      <Card.Body className="mb-2 text-muted" style={{ color: 'rgb(40, 40, 40)' }}>
         <Badge bg="warning" text="white" style={{ fontSize: '0.7rem' }}>OPEN </Badge>  
         {Object.keys(truck)
           .filter(day => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].includes(day))
@@ -48,7 +48,7 @@ const TruckForm = () => {
             return null
           })}
         | {truck.open} ~ {truck.closed} 
-        <Card.Title className="truck-name" style={{ color: 'rgb(80, 80, 80)', marginTop: '20px' }}>
+        <Card.Title className="truck-name" style={{ color: 'rgb(40, 40, 40)', marginTop: '20px' }}>
           {truck.name}
         </Card.Title>
       </Card.Body>
