@@ -3,17 +3,36 @@
   "model": "users.user",
   "pk": 1,
   "fields": {
-    "password": "pbkdf2_sha256$600000$sMLC0EFUftCBlX9ygEKBkx$21b+F4RENewX6Yy/T3KSBWKOOSn7rMU9Y/mQTxTfu1U=",
-    "last_login": "2023-04-22T19:12:16.144Z",
+    "password": "pbkdf2_sha256$600000$4NRva0Jd6JjPrhEenElY4C$vKxj4WtDjmNKQXp6K4QsWLtMQEhnH+t3YNMh2I228BU=",
+    "last_login": "2023-04-24T12:09:13.532Z",
     "is_superuser": true,
-    "username": "test",
+    "username": "candy",
     "first_name": "",
     "last_name": "",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2023-04-22T19:11:44.098Z",
-    "email": "test@email.com",
+    "date_joined": "2023-04-24T12:08:27.051Z",
+    "email": "candy@email.com",
     "image": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$CsJB0JPonRZeIJnU0QAvA0$/7UQaH35JCeikfXGkIlhIXc4wuS4Z+X3zrN+c6prsHg=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "Eunyeong",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-04-24T13:19:16Z",
+    "email": "ey@email.com",
+    "image": "profile_images/프로필_hVBtD7u.png",
     "groups": [],
     "user_permissions": []
   }

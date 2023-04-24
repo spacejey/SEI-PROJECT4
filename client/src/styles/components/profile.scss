@@ -1,4 +1,35 @@
 .profile {
   height: 100vh;
+  @extend %flex-center;
 }
 
+.info-username-email {
+  font-size: 30px;
+  margin: 0;
+}
+
+.greeting{
+  margin-bottom: 30px;
+  span{
+    font-style: italic;
+    color: rgb(22, 121, 126);
+  }
+}
+
+.title-username, .title-email {
+  font-family: $singlepage-font;
+  font-size: 30px;
+}
+
+.info-username, .info-username {
+  font-size: 20px;
+}
+
+.profile-info{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  border-radius: 20px;
+}

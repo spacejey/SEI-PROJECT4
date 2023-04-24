@@ -6,11 +6,10 @@ import { useParams, useNavigate } from 'react-router-dom'
 import Error from '../common/Error'
 import Spinner from '../common/Spinner'
 import TruckCard from './TruckCards'
-import { isAuthenticated } from '../../helpers/auth'
 import Reviews from './Reviews'
 
 // Bootstrap
-import { Container, Row, Col, Card, Button } from 'react-bootstrap'
+import { Container, Row, Col, Card } from 'react-bootstrap'
 import PageNavBar from '../common/PageNavBar'
 
 
@@ -53,14 +52,14 @@ const TruckSingle = () => {
 
 
   return (
-    <Container  className="d-flex justify-content-center align-items-center container-fluid vh-100">
+    <Container className="d-flex justify-content-center align-items-center container-fluid vh-200">
       <PageNavBar />
       <Row>
         <Col>
           <TruckCard />
-          <Card className="my-3 cloud-card" style={{ width: '80vw' }}>
-            <div>
-              <img src={truck.image} alt="" style={{ width: '200px' }}/>
+          <Card className="my-3 cloud-card" style={{ width: '80vw', padding: '50px' }}>
+            <Card.Img className='single-img' src={truck.image} alt="" style={{ width: '100%' }} />
+            <div className='single-info'>
               <Card.Title>About my truck...</Card.Title>
               <Card.Subtitle style={{ marginBottom: '30px' }}>{truck.description}</Card.Subtitle>
               <Card.Title >Menu</Card.Title>

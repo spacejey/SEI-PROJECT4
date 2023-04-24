@@ -11,6 +11,7 @@ import { includesUserId, isAuthenticated, authenticated } from '../../helpers/au
 import Spinner from '../common/Spinner'
 import Error from '../common/Error'
 import ProfileImage from './ProfileImage'
+import PageNavBar from '../common/PageNavBar'
 
 const Profile = ({ getUser, userError, setUserError }) => {
 
@@ -33,7 +34,7 @@ const Profile = ({ getUser, userError, setUserError }) => {
         const { data } = await authenticated.get('/api/auth/users/')
         setUser(data)
         setUserReviews(userReviews)
-        console.log(userReviews)
+        console.log(data)
       } catch (err) {
         console.log(err)
         setTrucksError(err.message)
@@ -45,18 +46,24 @@ const Profile = ({ getUser, userError, setUserError }) => {
     
   return (
     <div className='profile'>
+      <PageNavBar />
       <Form >
         <Form.Group className="mb-3">
           <div className='info'>
             {user ?
               <>
-                <ProfileImage userId={user._id} getUser={getUser} user={user} setUserError={setUserError} />
-                <div> 
-                  {user && <div> Hello, {user.username} </div>} 
-                </div>
-                <div className='info-username-email'>
-                  <h3>Username: @{user.username}</h3>
-                  <h3>Email: {user.email}</h3>
+                <div className='profile-info'>
+                  {user.image}
+                  <div className='greeting'> 
+                    {user && <h4>Welecome Back, <span>{user.username}</span> </h4>} 
+                  </div>
+                  <div className='info-username-email'>
+                    <p className='title-username'>Username </p>
+                    <p className='info-username' >@ {user.username}</p>
+                    <p className='title-email'>Email </p>
+                    <p className='info-username'>{user.email}</p>
+                  </div>
+                  <Button>Check my reviews</Button>
                 </div>
               </>
               :
@@ -68,7 +75,6 @@ const Profile = ({ getUser, userError, setUserError }) => {
               </>
             }
           </div>
-          <Button>Check my reviews</Button>
         </Form.Group>
       </Form>
     </div>

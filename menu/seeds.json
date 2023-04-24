@@ -3,9 +3,63 @@
   "model": "menu.menu",
   "pk": 1,
   "fields": {
-    "name": "Ice Bar",
+    "name": "Fresh Milk",
     "price": "3.00",
-    "notes": "good"
+    "notes": "Cream using fresh mi"
+  }
+},
+{
+  "model": "menu.menu",
+  "pk": 2,
+  "fields": {
+    "name": "Strawberry with Milk",
+    "price": "4.00",
+    "notes": "Strawberry ice cream"
+  }
+},
+{
+  "model": "menu.menu",
+  "pk": 3,
+  "fields": {
+    "name": "Candy Sweet",
+    "price": "2.00",
+    "notes": "Candy flavoed!"
+  }
+},
+{
+  "model": "menu.menu",
+  "pk": 4,
+  "fields": {
+    "name": "Vanilla Cream",
+    "price": "3.00",
+    "notes": "Fresh Vanilla Cream"
+  }
+},
+{
+  "model": "menu.menu",
+  "pk": 5,
+  "fields": {
+    "name": "Chocolate Milk",
+    "price": "4.00",
+    "notes": "Belgian Chocolate"
+  }
+},
+{
+  "model": "menu.menu",
+  "pk": 6,
+  "fields": {
+    "name": "Bubble Ice Cream",
+    "price": "6.00",
+    "notes": "Ice Cream & Bubble"
+  }
+},
+{
+  "model": "menu.menu",
+  "pk": 7,
+  "fields": {
+    "name": "Chocolate Ice",
+    "price": "4.00",
+    "notes": "Belgium Chocolate"
   }
 }
 ]
