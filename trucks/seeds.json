@@ -1,0 +1,22 @@
+[
+{
+  "model": "trucks.truck",
+  "pk": 1,
+  "fields": {
+    "name": "TEST",
+    "description": "TEST",
+    "Monday": false,
+    "Tuesday": false,
+    "Wednesday": false,
+    "Thursday": false,
+    "Friday": true,
+    "Saturday": true,
+    "Sunday": false,
+    "open": "09:00:00",
+    "closed": "17:00:00",
+    "reviewcount": 0,
+    "latitude": 50.0,
+    "longitude": 50.0
+  }
+}
+]
