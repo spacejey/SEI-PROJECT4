@@ -3,8 +3,12 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
 
 // Components
 import MapMarker from './MapMarker'
+import Error from '../common/Error'
+import Spinner from '../common/Spinner'
 
 const libraries = ['places'] 
+
+// Map style
 const containerStyle = {
   width: '100vw',
   height: '60vh',
@@ -24,6 +28,7 @@ const redCircle = {
   scale: 1,
 }
 
+
 function MapComponent() {
 
   // States
@@ -35,6 +40,10 @@ function MapComponent() {
       (position) => {
         const { latitude, longitude } = position.coords
         setCurrentPosition({ lat: latitude, lng: longitude })
+      },
+      (error) => {
+        Error(error)
+        alert('Not Found Current Location')
       }
     )
   }, [])
