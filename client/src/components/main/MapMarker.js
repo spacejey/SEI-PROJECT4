@@ -2,7 +2,6 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { Marker, InfoWindow } from '@react-google-maps/api'
 import { Container } from 'react-bootstrap'
-import Geocode from 'react-geocode'
 
 
 
@@ -35,6 +34,7 @@ function MapMarker() {
       .catch(error => console.log(error))
   }, [])
 
+
   
   function handleMarkerClick(marker) {
     setMarkers((prevMarkers) =>
@@ -47,6 +47,8 @@ function MapMarker() {
     )
     setSelectedMarker(marker)
   }
+
+
   
   return (
     <Container>
