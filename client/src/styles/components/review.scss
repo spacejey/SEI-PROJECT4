@@ -3,5 +3,18 @@
 }
 
 .reviews-section {
-  margin-top: 30px;
+  padding: 30px;
+}
+
+.post-btn {
+  border: 0;
+  box-shadow: 2px 2px 4px gray;
+  background-color: rgb(162, 206, 177);
+  border-radius: 10px;
+}
+
+textarea {
+  border: 1px solid rgb(167, 167, 167);
+  border-radius: 10px;
+  padding: 10px;
 }

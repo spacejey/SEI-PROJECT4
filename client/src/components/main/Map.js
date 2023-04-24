@@ -61,7 +61,7 @@ const Map = () => {
               <Card key={id} onClick={handleCardClick} className="cloud-card">
                 <Card.Body className='card-image-align'>
                   <div>
-                    <img src={truck.image} alt="" style={{ width: '200px' }}/>
+                    <img className='truck-img' src={truck.image} alt="" style={{ width: '200px' }}/>
                   </div>
                   <div className='truck-info'>
                     <Card.Subtitle className="mb-2 text-muted" style={{ color: 'rgb(50, 50, 50)' }}>
