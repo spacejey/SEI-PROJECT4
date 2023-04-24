@@ -39,7 +39,6 @@ const TruckSingle = () => {
   }, [truckId])
 
   useEffect(() => {
-    !isAuthenticated() && navigate('/')
     const getTruck = async () => {
       try {
         const { data } = await axios.get(`/api/trucks/${truckId}/`)
@@ -61,7 +60,7 @@ const TruckSingle = () => {
           <TruckCard />
           <Card className="my-3 cloud-card" style={{ width: '80vw' }}>
             <div>
-              <span>{truck.image}</span>
+              <img src={truck.image} alt="" style={{ width: '200px' }}/>
               <Card.Title>About my truck...</Card.Title>
               <Card.Subtitle style={{ marginBottom: '30px' }}>{truck.description}</Card.Subtitle>
               <Card.Title >Menu</Card.Title>

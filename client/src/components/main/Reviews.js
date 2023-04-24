@@ -63,7 +63,7 @@ const ReviewPage = ({ truck, getTruck, truckError }) => {
           <div className='review-input' style={{ marginBottom: '30px' }} >
             <textarea className="title-input"
               type='text'
-              placeholder='Write your review!'
+              placeholder='You can write review after login'
               onChange={handleChange}
               value={newReview.text}
               name='text'
