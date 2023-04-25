@@ -6,19 +6,74 @@
     "owner": 1,
     "truck": 2,
     "rate": 5,
-    "date": "2023-04-24T12:20:20.750Z",
-    "text": "Elly makes really good ice cream!\r\nI want to eat every day!"
+    "date": "2023-04-24T14:07:29.356Z",
+    "text": "AMAZING APP!"
   }
 },
 {
   "model": "reviews.review",
   "pk": 2,
   "fields": {
+    "owner": 2,
+    "truck": 1,
+    "rate": 4,
+    "date": "2023-04-24T14:20:02.656Z",
+    "text": "Yum Yum"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 3,
+  "fields": {
     "owner": 1,
     "truck": 1,
     "rate": 4,
-    "date": "2023-04-24T12:21:40.539Z",
-    "text": "He uses really fresh milk!"
+    "date": "2023-04-24T14:20:27.261Z",
+    "text": "Very good! Mr.Whippy is really nice :)"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 4,
+  "fields": {
+    "owner": 3,
+    "truck": 2,
+    "rate": 5,
+    "date": "2023-04-24T14:20:38.905Z",
+    "text": "Wow ! I love it!"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 5,
+  "fields": {
+    "owner": 3,
+    "truck": 4,
+    "rate": 5,
+    "date": "2023-04-24T14:20:59.469Z",
+    "text": "London best ice cream truck!"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 6,
+  "fields": {
+    "owner": 1,
+    "truck": 4,
+    "rate": 4,
+    "date": "2023-04-24T14:21:53.350Z",
+    "text": "He never stops talking about football!"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 7,
+  "fields": {
+    "owner": 2,
+    "truck": 3,
+    "rate": 3,
+    "date": "2023-04-24T14:22:05.770Z",
+    "text": "Vanilla is good"
   }
 }
 ]

@@ -39,10 +39,10 @@ function PageNavBar() {
                     <Nav.Link href="/register">Sign In</Nav.Link>
                   </>
                 )}
+                {isLoggedIn && (
+                  <Nav.Link href="/" onClick={handleLogout}>Logout</Nav.Link>
+                )}
               </Nav>
-              {isLoggedIn && (
-                <Nav.Link href="#" onClick={handleLogout}>Logout</Nav.Link>
-              )}
             </div>
           </div>
         </Container>

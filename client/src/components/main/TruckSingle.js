@@ -30,7 +30,6 @@ const TruckSingle = () => {
     try {
       const { data } = await axios.get(`/api/trucks/${truckId}`)
       setTruck(data)
-      console.log(data)
     } catch (err) {
       console.log(err)
       setTruckError(err.message)
@@ -42,6 +41,7 @@ const TruckSingle = () => {
       try {
         const { data } = await axios.get(`/api/trucks/${truckId}/`)
         setTruck(data)
+        console.log('TRUCK=>', data)
       } catch (err) {
         console.log(truckError)
       }
@@ -62,8 +62,8 @@ const TruckSingle = () => {
             <div className='single-info'>
               <Card.Title>About my truck...</Card.Title>
               <Card.Subtitle style={{ marginBottom: '30px' }}>{truck.description}</Card.Subtitle>
-              <Card.Title >Menu</Card.Title>
-              <Card.Subtitle style={{ marginBottom: '30px' }}>{truck.menu}</Card.Subtitle>
+              {/* <Card.Title >Menu</Card.Title>
+              <Card.Subtitle style={{ marginBottom: '30px' }}>{truck.menu}</Card.Subtitle> */}
               <Card.Title>Reviews</Card.Title>
               <Reviews truck={truck} getTruck={getTruck} truckError={truckError}/>
             </div>
