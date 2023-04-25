@@ -165,9 +165,6 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
-WHITENOISE_ROOT = {
-    'DEFAULT': None,
-}
 
 
 django_on_heroku.settings(locals())
