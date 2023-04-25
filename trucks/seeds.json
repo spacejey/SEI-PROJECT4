@@ -4,21 +4,20 @@
   "pk": 1,
   "fields": {
     "name": "🍦Mr.Whippy🍦",
-    "image": "images/mrwhippy.jpg",
+    "image": "images/mrwhippy_VSZh30t.jpg",
     "description": "Tottenham's best ice cream made by Whiffy!",
     "Monday": false,
     "Tuesday": false,
     "Wednesday": false,
     "Thursday": false,
     "Friday": false,
-    "Saturday": false,
-    "Sunday": false,
-    "open": "09:00:00",
+    "Saturday": true,
+    "Sunday": true,
+    "open": "12:00:00",
     "closed": "17:00:00",
     "reviewcount": 0,
     "latitude": 51.592460973739826,
-    "longitude": -0.07519746930784194,
-    "menu": 1
+    "longitude": -0.07519746930784194
   }
 },
 {
@@ -26,21 +25,20 @@
   "pk": 2,
   "fields": {
     "name": "💕Elly's Sweet Dream💕",
-    "image": "images/HaveaCreamday.jpg",
-    "description": "Our delicious ice cream will make your day sweet!\r\nWrite a review and get 1 free topping!",
+    "image": "images/Sweet_Dream_truck.jpg",
+    "description": "Our delicious ice cream will make your day sweet!\\r\\nWrite a review and get 1 free topping!",
     "Monday": false,
     "Tuesday": false,
-    "Wednesday": false,
+    "Wednesday": true,
     "Thursday": false,
     "Friday": true,
-    "Saturday": true,
+    "Saturday": false,
     "Sunday": false,
-    "open": "12:00:00",
+    "open": "13:00:00",
     "closed": "19:00:00",
     "reviewcount": 0,
     "latitude": 51.59480709834942,
-    "longitude": -0.08699918947957522,
-    "menu": 3
+    "longitude": -0.08699918947957522
   }
 },
 {
@@ -48,21 +46,20 @@
   "pk": 3,
   "fields": {
     "name": "💕HABANA🍌BANANA",
-    "image": "images/Habana.jpg",
+    "image": "images/Habana_M6HJ0hp.jpg",
     "description": "We have fresh milk and chocolate from the farmer every morning",
-    "Monday": true,
-    "Tuesday": true,
-    "Wednesday": false,
+    "Monday": false,
+    "Tuesday": false,
+    "Wednesday": true,
     "Thursday": false,
-    "Friday": false,
+    "Friday": true,
     "Saturday": false,
     "Sunday": false,
-    "open": "13:00:00",
+    "open": "14:00:00",
     "closed": "17:00:00",
     "reviewcount": 0,
     "latitude": 51.592540957320765,
-    "longitude": -0.06142164359750836,
-    "menu": 5
+    "longitude": -0.06142164359750836
   }
 },
 {
@@ -70,43 +67,41 @@
   "pk": 4,
   "fields": {
     "name": "Mr.Son's Ice ball⚽",
-    "image": "images/MrsonIceball.jpg",
-    "description": "We make ice cream exclusively for Tottenham Stadium fans.\r\nShow me your Tottenham match ticket and I'll give you a free chocolate topping.",
+    "image": "images/MrsonIceball_fm6Z5fg.jpg",
+    "description": "We make ice cream exclusively for Tottenham Stadium fans.\\r\\nShow me your Tottenham match ticket and I'll give you a free chocolate topping.\"",
     "Monday": false,
-    "Tuesday": false,
+    "Tuesday": true,
     "Wednesday": false,
-    "Thursday": true,
+    "Thursday": false,
     "Friday": false,
-    "Saturday": false,
+    "Saturday": true,
     "Sunday": true,
     "open": "11:00:00",
-    "closed": "17:00:00",
+    "closed": "20:00:00",
     "reviewcount": 0,
     "latitude": 51.60434104227124,
-    "longitude": -0.06620652877264807,
-    "menu": 1
+    "longitude": -0.06620652877264807
   }
 },
 {
   "model": "trucks.truck",
   "pk": 5,
   "fields": {
-    "name": "🍓Unbelibubble Desert",
-    "image": "images/Unbelibubble.jps.jpeg",
-    "description": "Dear Bubble Lovers...We're here!",
+    "name": "🍓Unbelibubble Desert\"",
+    "image": "images/Unbelibubble.jps_S13SS4V.jpeg",
+    "description": "\"Dear Bubble Lovers...We're here!\"",
     "Monday": false,
-    "Tuesday": true,
-    "Wednesday": true,
+    "Tuesday": false,
+    "Wednesday": false,
     "Thursday": false,
-    "Friday": false,
+    "Friday": true,
     "Saturday": false,
-    "Sunday": false,
+    "Sunday": true,
     "open": "11:00:00",
     "closed": "17:00:00",
     "reviewcount": 0,
     "latitude": 51.60116895396955,
-    "longitude": -0.07541439548225659,
-    "menu": 2
+    "longitude": -0.07541439548225659
   }
 }
 ]

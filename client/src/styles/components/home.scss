@@ -12,6 +12,7 @@
   top: -180px;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: #5c00efb3;
 }
 
 .icecream{
@@ -29,6 +30,7 @@
   bottom: -280px;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: #000dffbe;
 }
 
 .main-btn{
@@ -43,6 +45,9 @@
   bottom: 25px;
   left: 50%;
   transform: translate(-50%, -50%);
+    &:hover{
+      background-color: transparent;
+    }
 }
 
   main {

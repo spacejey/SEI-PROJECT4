@@ -2,10 +2,9 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.exceptions import PermissionDenied
-
 from .models import Review
 from .serializers.common import ReviewSerializer
-
+from django.contrib.auth import get_user_model
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from lib.exceptions import exceptions
 
@@ -32,6 +31,12 @@ class ReviewListView(APIView):
         review_to_create.is_valid(raise_exception=True)
         review_to_create.save()
         return Response(review_to_create.data, status.HTTP_201_CREATED)
+    
+
+
+
+
+
 
 class ReviewDetailView(APIView):
     permission_classes = (IsAuthenticatedOrReadOnly,)

@@ -56,11 +56,9 @@ const ReviewBox = ({ rate, username, id, text, truckId, getTruck }) => {
 
   return (
     <div>
-      <h4 className='user-name'>@{username}
-        <div className='top-buttons'>
-          <button className='delete' onClick={(e) => handleDelete(e, id)}>Delete</button>
-        </div>
-      </h4>
+      <div className='top-buttons'>
+        <button className='delete' onClick={(e) => handleDelete(e, id)}>Delete</button>
+      </div>
       {editCheck ?
         <Container>
           <Col as='form' onSubmit={(e) => handleSubmitEdit(e, id)}>
