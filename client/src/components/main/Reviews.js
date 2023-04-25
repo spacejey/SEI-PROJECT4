@@ -10,6 +10,7 @@ import { authenticated, userIsOwner } from '../../helpers/auth'
 import Spinner from '../common/Spinner'
 import Error from '../common/Error'
 import StarRating from '../main/StarRating'
+import ReviewBox from '../main/ReviewBox'
 
 
 
@@ -101,7 +102,7 @@ const ReviewPage = ({ truck, getTruck, truckError }) => {
       <div className='error'>
         {postError && <Error error={postError} />}
       </div>
-
+      {/* <ReviewBox /> */}
       {reviews ?
         reviews.map(review => {
           const { text, rate, id } = review

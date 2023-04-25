@@ -40,58 +40,61 @@ function Register() {
 
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group className="mb-3" controlId="formBasicName">
-        <Form.Label>User name</Form.Label>
-        <Form.Control
-          type="text"
-          name="username"
-          placeholder="Enter user name"
-          value={formFields.username}
-          onChange={handleChange}
-        />
-      </Form.Group>
+    <div className="login-register-form">
+      <Form onSubmit={handleSubmit}>
+        <Form.Group className="mb-3" controlId="formBasicName">
+          <Form.Label>User name</Form.Label>
+          <Form.Control
+            type="text"
+            name="username"
+            placeholder="Enter user name"
+            value={formFields.username}
+            onChange={handleChange}
+          />
+        </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control
-          type="email"
-          name="email"
-          placeholder="Enter email"
-          value={formFields.email}
-          onChange={handleChange}
-        />
-      </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control
+            type="email"
+            name="email"
+            placeholder="Enter email"
+            value={formFields.email}
+            onChange={handleChange}
+          />
+        </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formFields.password}
-          onChange={handleChange}
-        />
-      </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={formFields.password}
+            onChange={handleChange}
+          />
+        </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPasswordConfirmation">
-        <Form.Label>Password Confirmation</Form.Label>
-        <Form.Control
-          type="password"
-          name="passwordConfirmation"
-          placeholder="Password Confirmation"
-          value={formFields.passwordConfirmation}
-          onChange={handleChange}
-        />
-      </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicPasswordConfirmation">
+          <Form.Label>Password Confirmation</Form.Label>
+          <Form.Control
+            type="password"
+            name="passwordConfirmation"
+            placeholder="Password Confirmation"
+            value={formFields.passwordConfirmation}
+            onChange={handleChange}
+          />
+        </Form.Group>
 
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-      {registerError && (
-        <p className="text-danger text-center register-login-error">{registerError}</p>
-      )}
-    </Form>
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+        {registerError && (
+          <p className="text-danger text-center register-login-error">{registerError}</p>
+        )}
+      </Form>
+
+    </div>
   )
 }
 
