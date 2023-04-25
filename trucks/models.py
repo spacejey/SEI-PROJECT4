@@ -2,7 +2,7 @@ from django.db import models
 
 class Truck(models.Model):
     name = models.CharField(max_length=50)
-    image = models.TextField(max_length=200)
+    image = models.TextField(max_length=1000)
     description = models.TextField(max_length=300)
     Monday = models.BooleanField(default=False)
     Tuesday = models.BooleanField(default=False)

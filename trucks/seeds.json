@@ -4,7 +4,7 @@
   "pk": 1,
   "fields": {
     "name": "🍦Mr.Whippy🍦",
-    "image": "images/mrwhippy_VSZh30t.jpg",
+    "image": "https://res.cloudinary.com/dpulji3ct/image/upload/v1682441582/SEI-PROJECT4/mrwhippy_n5ciu5.jpg",
     "description": "Tottenham's best ice cream made by Whiffy!",
     "Monday": false,
     "Tuesday": false,
@@ -25,7 +25,7 @@
   "pk": 2,
   "fields": {
     "name": "💕Elly's Sweet Dream💕",
-    "image": "images/Sweet_Dream_truck.jpg",
+    "image": "https://res.cloudinary.com/dpulji3ct/image/upload/v1682441583/SEI-PROJECT4/Sweet_Dream_truck_dwguo3.webp",
     "description": "Our delicious ice cream will make your day sweet!\\r\\nWrite a review and get 1 free topping!",
     "Monday": false,
     "Tuesday": false,
@@ -46,7 +46,7 @@
   "pk": 3,
   "fields": {
     "name": "💕HABANA🍌BANANA",
-    "image": "images/Habana_M6HJ0hp.jpg",
+    "image": "https://res.cloudinary.com/dpulji3ct/image/upload/v1682441582/SEI-PROJECT4/Habana_zizrzh.jpg",
     "description": "We have fresh milk and chocolate from the farmer every morning",
     "Monday": false,
     "Tuesday": false,
@@ -67,7 +67,7 @@
   "pk": 4,
   "fields": {
     "name": "Mr.Son's Ice ball⚽",
-    "image": "images/MrsonIceball_fm6Z5fg.jpg",
+    "image": "https://res.cloudinary.com/dpulji3ct/image/upload/v1682441583/SEI-PROJECT4/HaveaCreamday_rt6yti.jpg",
     "description": "We make ice cream exclusively for Tottenham Stadium fans.\\r\\nShow me your Tottenham match ticket and I'll give you a free chocolate topping.\"",
     "Monday": false,
     "Tuesday": true,
@@ -88,7 +88,7 @@
   "pk": 5,
   "fields": {
     "name": "🍓Unbelibubble Desert\"",
-    "image": "images/Unbelibubble.jps_S13SS4V.jpeg",
+    "image": "https://res.cloudinary.com/dpulji3ct/image/upload/v1682441582/SEI-PROJECT4/Unbelibubble.jps_n7pgxy.jpg",
     "description": "\"Dear Bubble Lovers...We're here!\"",
     "Monday": false,
     "Tuesday": false,
