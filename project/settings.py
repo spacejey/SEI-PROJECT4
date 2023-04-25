@@ -16,6 +16,7 @@ env = environ.Env()
 environ.Env.read_env()
 from pathlib import Path
 import os
+import django_on_heroku
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -70,7 +71,9 @@ ROOT_URLCONF = 'project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'client')
+                ]
+        ,
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -147,3 +150,9 @@ REST_FRAMEWORK = {
         'users.authentication.JWTAuthentication'
     ]
 }
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'client', "build", "static"),
+)
+
+django_on_heroku.settings(locals())

@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1b6ba7cc.css",
+    "main.js": "/static/js/main.bac2a0a7.js",
+    "static/media/spinner.gif": "/static/media/spinner.87cd9ec86bbef6ef55ac.gif",
+    "static/media/home-icecream-3d.png": "/static/media/home-icecream-3d.40954e872ec78ae9ffd0.png",
+    "index.html": "/index.html",
+    "main.1b6ba7cc.css.map": "/static/css/main.1b6ba7cc.css.map",
+    "main.bac2a0a7.js.map": "/static/js/main.bac2a0a7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1b6ba7cc.css",
+    "static/js/main.bac2a0a7.js"
+  ]
+}
