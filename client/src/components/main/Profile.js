@@ -34,7 +34,7 @@ const Profile = ({ getUser, userError, setUserError }) => {
         const { data } = await authenticated.get('/api/auth/users/')
         setUser(data)
         setUserReviews(userReviews)
-        console.log(data)
+
       } catch (err) {
         console.log(err)
         setTrucksError(err.message)

@@ -34,7 +34,6 @@ const Map = () => {
       try {
         const { data } = await axios.get('/api/trucks/')
         setTrucks(data)
-        console.log(data)
       } catch (err) {
         console.log(err)
         setError(err.message)

@@ -10,7 +10,7 @@ import Col from 'react-bootstrap/Col'
 // Custom components
 import { authenticated } from '../../helpers/auth'
 
-const ReviewBox = ({ rate, username, id, text, truckId, getTruck }) => {
+const ReviewBox = ({ rate, username, id, text, truckId }) => {
 
   // States
   const [ editedReview, setEditedReview ] = useState({
@@ -36,7 +36,6 @@ const ReviewBox = ({ rate, username, id, text, truckId, getTruck }) => {
     try {
       await authenticated.put(`/api/reviews/${id}/`, editedReview)
       setEditedReview({ text: '' })
-      getTruck()
       setEditCheck(false)
     } catch (err) {
       console.log(err.response)
@@ -48,7 +47,6 @@ const ReviewBox = ({ rate, username, id, text, truckId, getTruck }) => {
     try {
       await authenticated.delete(`/api/reviews/${id}/`)
       alert('Do you want to delete your comment?')
-      getTruck()
     } catch (err) {
       console.log(err)
     }
@@ -62,6 +60,7 @@ const ReviewBox = ({ rate, username, id, text, truckId, getTruck }) => {
       {editCheck ?
         <Container>
           <Col as='form' onSubmit={(e) => handleSubmitEdit(e, id)}>
+            <button className='edit' onClick={(e) => handleChangeEdit(e, id)}>Edit</button>
             <Col className='edit-box'>
               <input type='text' className='edit-input' onChange={handleChangeEdit} value={editedReview.text}/>
               {editError && <Error error={editError}/>}

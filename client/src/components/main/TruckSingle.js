@@ -41,7 +41,6 @@ const TruckSingle = () => {
       try {
         const { data } = await axios.get(`/api/trucks/${truckId}/`)
         setTruck(data)
-        console.log('TRUCK=>', data)
       } catch (err) {
         console.log(truckError)
       }
@@ -58,12 +57,10 @@ const TruckSingle = () => {
         <Col>
           <TruckCard />
           <Card className="my-3 cloud-card" style={{ width: '80vw', padding: '50px' }}>
-            <Card.Img className='single-img' src={truck.image} alt="" style={{ width: '100%' }} />
+            <Card.Title>About my truck...</Card.Title>
+            <Card.Subtitle style={{ marginBottom: '80px' }}>{truck.description}</Card.Subtitle>
+            <Card.Img className='single-img' src={truck.image} alt="" style={{ width: '100%', marginBottom: '80px' }} />
             <div className='single-info'>
-              <Card.Title>About my truck...</Card.Title>
-              <Card.Subtitle style={{ marginBottom: '30px' }}>{truck.description}</Card.Subtitle>
-              {/* <Card.Title >Menu</Card.Title>
-              <Card.Subtitle style={{ marginBottom: '30px' }}>{truck.menu}</Card.Subtitle> */}
               <Card.Title>Reviews</Card.Title>
               <Reviews truck={truck} getTruck={getTruck} truckError={truckError}/>
             </div>

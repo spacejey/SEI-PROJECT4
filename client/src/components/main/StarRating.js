@@ -21,7 +21,6 @@ function StarRating(props) {
               value={ratingValue}
               onClick={() => {
                 setRating(ratingValue)
-                console.log(typeof ratingValue)
                 if (onChange) {
                   onChange(ratingValue)
                 }

@@ -25,7 +25,6 @@ const TruckForm = () => {
       try {
         const { data } = await axios.get(`/api/trucks/${truckId}/`)
         setTruck(data)
-        console.log('DATA',data)
       } catch (err) {
         console.log(error)
       }
@@ -49,7 +48,7 @@ const TruckForm = () => {
               return null
             })}
           | {truck.open} ~ {truck.closed} 
-          <Card.Title className="truck-name" style={{ color: 'rgb(80, 80, 80)', marginTop: '20px' }}>
+          <Card.Title className="truck-name" style={{ color: 'rgb(80, 80, 80)', marginTop: '20px', fontSize: 55 }}>
             {truck.name}
           </Card.Title>
         </Card.Body>
