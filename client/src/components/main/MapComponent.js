@@ -31,42 +31,42 @@ const redCircle = {
 
 function MapComponent() {
   // States
-  const [currentPosition, setCurrentPosition] = useState({ lat: 51.5916620616722, lng: -0.07530838650631153 })
+  // const [currentPosition, setCurrentPosition] = useState({ lat: 51.5916620616722, lng: -0.07530838650631153 })
   
-  function handleApiLoad(map, maps) {
+  // function handleApiLoad(map, maps) {
   
-    // Set the default location to depends on user's current lacation
-    useEffect(() => {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { latitude, longitude } = position.coords
-          setCurrentPosition({ lat: latitude, lng: longitude })
-        },
-        (error) => {
-          console.error(error)
-          alert('Not Found Current Location')
-        }
-      )
-    }, [])
+  //   // Set the default location to depends on user's current lacation
+  //   useEffect(() => {
+  //     navigator.geolocation.getCurrentPosition(
+  //       (position) => {
+  //         const { latitude, longitude } = position.coords
+  //         setCurrentPosition({ lat: latitude, lng: longitude })
+  //       },
+  //       (error) => {
+  //         console.error(error)
+  //         alert('Not Found Current Location')
+  //       }
+  //     )
+  //   }, [])
 
-  }
+  // }
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries: libraries,
   })
-  console.log('isLoaded->', isLoaded)
-  console.log('CURRENT->', currentPosition)
 
+
+  const defaultPosition = { lat: 51.5916620616722, lng: -0.07530838650631153 }
 
   return (
     <div className='map-components'>
       { isLoaded && 
-        <GoogleMap mapContainerStyle={containerStyle} center={currentPosition} zoom={14}>
+        <GoogleMap mapContainerStyle={containerStyle} center={defaultPosition} zoom={14}>
           <MapMarker />
-          {currentPosition && (
-            <Marker position={currentPosition} icon={redCircle}/>
+          {defaultPosition && (
+            <Marker position={defaultPosition} icon={redCircle}/>
           )}
         </GoogleMap>
       }
