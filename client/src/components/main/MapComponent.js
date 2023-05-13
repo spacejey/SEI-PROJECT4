@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { GoogleMap, LoadScript, Marker, useJsApiLoader } from '@react-google-maps/api'
+import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api'
 
 // Components
 import MapMarker from './MapMarker'
@@ -31,7 +31,7 @@ const redCircle = {
 
 function MapComponent() {
   // States
-  const [currentPosition, setCurrentPosition] = useState(null)
+  const [currentPosition, setCurrentPosition] = useState({ lat: 51.5916620616722, lng: -0.07530838650631153 })
   
   function handleApiLoad(map, maps) {
   
@@ -56,6 +56,8 @@ function MapComponent() {
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries: libraries,
   })
+  console.log('isLoaded->', isLoaded)
+  console.log('CURRENT->', currentPosition)
 
 
   return (
