@@ -1,4 +1,62 @@
 .login-register-form {
   height: 100vh;
   @extend %flex-center;
+  background-color: rgb(180, 255, 244);
+}
+
+.login-wrapper {
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.login-title {
+  font-family: $login-font;
+  font-size: 90px;
+  position: relative;
+  z-index: 1;
+}
+
+.form-control {
+  margin-bottom: 50px;
+}
+
+.login-icecream-image {
+  width: 150px;
+  transform: rotate(45deg);
+  position: absolute;
+  top: -18px;
+  right: -20px;
+  z-index: 0;
+}
+
+.login-cloud-image {
+  width: 250px;
+  position: absolute;
+  top: -80px;
+  right: 200px;
+  z-index: 0;
+}
+
+.login-cloud-image2 {
+  width: 140px;
+  position: absolute;
+  top: 70px;
+  right: -30px;
+  z-index: 0;
+}
+
+.text-muted {
+  font-style: italic;
+}
+
+.submit {
+  font-family: $main-font;
+  font-size: 80px;
+  color: rgba(7, 207, 204, 0.912);
+  background-color: transparent;
+  border: none;
+  &:hover{
+    background-color: transparent;
+    color: rgba(177, 72, 193, 0.912);
+  }
 }

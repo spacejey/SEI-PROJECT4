@@ -53,8 +53,7 @@ INSTALLED_APPS = [
     'trucks',
     'reviews',
     'menu',
-    'users',
-    'menu_trucks'
+    'users'
 ]
 
 MIDDLEWARE = [

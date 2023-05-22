@@ -6,6 +6,10 @@ import { useNavigate } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
+//Components
+import IceCreamImage from '../../images/login-icecream.png'
+import Cloud from '../../images/cloud.png'
+
 function Register() {
 
   // ! Location variables
@@ -42,6 +46,12 @@ function Register() {
   return (
     <div className="login-register-form">
       <Form onSubmit={handleSubmit}>
+        <div className='login-wrapper'>
+          <h1 className='login-title'>Register</h1>
+          <img className="login-icecream-image" src={IceCreamImage} alt="" />
+          <img className="login-cloud-image" src={Cloud} alt="" />
+          <img className="login-cloud-image2" src={Cloud} alt="" />
+        </div>
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>User name</Form.Label>
           <Form.Control
@@ -50,6 +60,7 @@ function Register() {
             placeholder="Enter user name"
             value={formFields.username}
             onChange={handleChange}
+            className='form-control'
           />
         </Form.Group>
 
@@ -61,6 +72,7 @@ function Register() {
             placeholder="Enter email"
             value={formFields.email}
             onChange={handleChange}
+            className='form-control'
           />
         </Form.Group>
 
@@ -72,6 +84,7 @@ function Register() {
             placeholder="Password"
             value={formFields.password}
             onChange={handleChange}
+            className='form-control'
           />
         </Form.Group>
 
@@ -86,9 +99,7 @@ function Register() {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
+        <Button variant="primary" type="submit" className='submit'>Submit</Button>
         {registerError && (
           <p className="text-danger text-center register-login-error">{registerError}</p>
         )}

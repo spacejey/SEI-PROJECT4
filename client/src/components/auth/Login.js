@@ -6,6 +6,10 @@ import { useNavigate } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
+//Components
+import IceCreamImage from '../../images/login-icecream.png'
+import Cloud from '../../images/cloud.png'
+
 const Login = () => {
 
 
@@ -40,6 +44,12 @@ const Login = () => {
   return (
     <div className="login-register-form">
       <Form onSubmit={handleSubmit}>
+        <div className='login-wrapper'>
+          <h1 className='login-title'>Login</h1>
+          <img className="login-icecream-image" src={IceCreamImage} alt="" />
+          <img className="login-cloud-image" src={Cloud} alt="" />
+          <img className="login-cloud-image2" src={Cloud} alt="" />
+        </div>
         <Form.Group>
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -48,10 +58,8 @@ const Login = () => {
             placeholder="Enter email"
             value={formFields.email}
             onChange={handleChange}
+            className='form-control'
           />
-          <Form.Text className="text-muted">
-            Well never share your email with anyone else.
-          </Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -63,8 +71,9 @@ const Login = () => {
             value={formFields.password}
             onChange={handleChange}
           />
+          <p className="text-muted">You dont have account? <a href="/register">Register</a></p>
         </Form.Group>
-        <Button variant="primary" type="submit">Submit</Button>
+        <Button variant="primary" type="submit" className='submit'>Submit</Button>
       </Form>
 
     </div>
