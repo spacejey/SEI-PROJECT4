@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.fbfd2656.css",
-    "main.js": "/static/js/main.33b02fe4.js",
+    "main.css": "/static/css/main.721c9718.css",
+    "main.js": "/static/js/main.ac506a10.js",
     "static/media/spinner.gif": "/static/media/spinner.87cd9ec86bbef6ef55ac.gif",
     "static/media/home-icecream-3d.png": "/static/media/home-icecream-3d.40954e872ec78ae9ffd0.png",
+    "static/media/login-icecream.png": "/static/media/login-icecream.dd51567301dbb88d56ec.png",
+    "static/media/cloud.png": "/static/media/cloud.0561bb6ed450905d2b1e.png",
     "index.html": "/index.html",
-    "main.fbfd2656.css.map": "/static/css/main.fbfd2656.css.map",
-    "main.33b02fe4.js.map": "/static/js/main.33b02fe4.js.map"
+    "main.721c9718.css.map": "/static/css/main.721c9718.css.map",
+    "main.ac506a10.js.map": "/static/js/main.ac506a10.js.map"
   },
   "entrypoints": [
-    "static/css/main.fbfd2656.css",
-    "static/js/main.33b02fe4.js"
+    "static/css/main.721c9718.css",
+    "static/js/main.ac506a10.js"
   ]
 }
