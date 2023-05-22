@@ -48,7 +48,7 @@ const TruckForm = () => {
               return null
             })}
           | {truck.open} ~ {truck.closed} 
-          <Card.Title className="truck-name" style={{ color: 'rgb(80, 80, 80)', marginTop: '20px', fontSize: 55 }}>
+          <Card.Title className="truck-name" style={{ color: 'rgb(80, 80, 80)', marginTop: '20px' }}>
             {truck.name}
           </Card.Title>
         </Card.Body>

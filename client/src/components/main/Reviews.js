@@ -12,12 +12,7 @@ import Error from '../common/Error'
 import StarRating from '../main/StarRating'
 import ReviewBox from '../main/ReviewBox'
 
-
-// 리뷰 페이지 작성. 여기에는 검증된 유저에 한해서만 리뷰를 작성할 수 있도록 Input칸과 Post 버튼을 작성한다.
-// 일단 usaeEffect로 유져를 매번 새로 불러오고
-// input에 text와, post버튼을 눌러 handleSubmit에 연동시킨다. 
 const ReviewPage = () => {
-  
   // Variables
   const { truckId } = useParams()
   const { userId } = useParams()
@@ -30,13 +25,13 @@ const ReviewPage = () => {
     truck: truckId,
     user: userId,
   })
-  const [ postError, setPostError ] = useState('')
-  const [ user, setUser ] = useState(null)
-  const [ userReviews, setUserReviews ] = useState([])
-  const [ trucksError, setTrucksError ] = useState('')
+  const [postError, setPostError] = useState('')
+  const [user, setUser] = useState({ username: '' })
+  const [userReviews, setUserReviews] = useState([])
+  const [trucksError, setTrucksError] = useState('')
   
 
-  // ! Executions
+  // Executions
   const handleChange = (e) => {
     setNewReview({ ...newReview, text: e.target.value })
     setPostError('')
@@ -45,30 +40,36 @@ const ReviewPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await authenticated.post('/api/reviews/', ...newReview)
-      // Update the reviews state
+
+      const response = await authenticated.post('/api/reviews/', newReview)
       setNewReview({ text: '', rate: '', truck: truckId, user: userId })
       setReviews([...reviews, response.data])
+      setUserReviews([...userReviews, response.data])
+      
+      const storedReviews = JSON.parse(localStorage.getItem('reviews')) || []
+      const updatedReviews = [...storedReviews, response.data]
+      localStorage.setItem('reviews', JSON.stringify(updatedReviews))
+
     } catch (err) {
       console.log(err.message)
       setPostError('')
     }
   }
 
-
   useEffect(() => {
     const getReviews = async () => {
       try {
-        const { data } = await authenticated.get('/api/auth/users/')
-        setReviews(data)
+        const { data } = await authenticated.get(`/api/auth/users/${userId}`)
+        const storedReviews = JSON.parse(localStorage.getItem('reviews')) || []
+        setUser(data)
+        setReviews(storedReviews)
       } catch (err) {
         console.log(err)
         setTrucksError('')
       }
     }
     getReviews()
-  }, [userId])
-
+  }, [truckId])
 
   return (
     <div onSubmit={handleSubmit}>
@@ -97,15 +98,15 @@ const ReviewPage = () => {
       <ReviewBox />
       {reviews ?
         reviews.map(review => {
-          const { text, rate, id, owner: { username } } = review
+          const { text, rate, id, username } = review
           return (
             <Card key={id}>
               <Fragment key={id}>
                 {userIsOwner(review) ?
-                  <Card username={user.username} truckError={truckId} />
+                  <Card truckError={truckId} />
                   :
                   <div className='reviews-section'>
-                    {/* <h4 className='user-name'>@ {user.username}</h4> */}
+                    <h4 className='user-name'>@ {username}</h4>
                     <p className='rate'>Rate: {rate} stars </p>
                     <p className='review'>Review: {text}</p>
                   </div>
