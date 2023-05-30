@@ -9,16 +9,17 @@
 ##### This was a solo project, completed in the final week and a half (weeks 11-12) of the General Assembly software engineering course.
 
 ### Technologies Used
-<img alt="django" src ="https://img.shields.io/badge/django-#092E20.svg?&style=for-the-badge&logo=django&logoColor=white"/width="60" height="20">
-<img alt="Python" src ="https://img.shields.io/badge/Python-3776AB.svg?&style=for-the-badge&logo=Python&logoColor=white"/width="60" height="20">
-<img alt="postgresql" src ="https://img.shields.io/badge/postgresql-#4169E1.svg?&style=for-the-badge&logo=postgresql&logoColor=white"/width="60" height="20">
-<img alt="sass" src ="https://img.shields.io/badge/sass-#CC6699.svg?&style=for-the-badge&logo=sass&logoColor=white"/width="60" height="20">
-<img alt="react" src ="https://img.shields.io/badge/react-#61DAFB.svg?&style=for-the-badge&logo=react&logoColor=white"/width="60" height="20">
-<img alt="git" src ="https://img.shields.io/badge/git-#F05032.svg?&style=for-the-badge&logo=git&logoColor=white"/width="60" height="20">
-<img alt="npm" src ="https://img.shields.io/badge/npm-#CB3837.svg?&style=for-the-badge&logo=npm&logoColor=white"/width="60" height="20">
-<img alt="figma" src ="https://img.shields.io/badge/figma-#F24E1E.svg?&style=for-the-badge&logo=figma&logoColor=white"/width="60" height="20">
-<img alt="googlemaps" src ="https://img.shields.io/badge/googlemaps-#4285F4.svg?&style=for-the-badge&logo=googlemaps&logoColor=white"/width="60" height="20">
-<img alt="insomnia" src ="https://img.shields.io/badge/insomnia-#4000BF.svg?&style=for-the-badge&logo=insomnia&logoColor=white"/width="60" height="20">
+![django](https://img.shields.io/badge/django-%23092E20.svg?&style=for-the-badge&logo=django&logoColor=white)
+![Python](https://img.shields.io/badge/Python-%233776AB.svg?&style=for-the-badge&logo=Python&logoColor=white)
+![postgresql](https://img.shields.io/badge/postgresql-%234169E1.svg?&style=for-the-badge&logo=postgresql&logoColor=white)
+![sass](https://img.shields.io/badge/sass-%23CC6699.svg?&style=for-the-badge&logo=sass&logoColor=white)
+![react](https://img.shields.io/badge/react-%2361DAFB.svg?&style=for-the-badge&logo=react&logoColor=white)
+![git](https://img.shields.io/badge/git-%23F05032.svg?&style=for-the-badge&logo=git&logoColor=white)
+![npm](https://img.shields.io/badge/npm-%23CB3837.svg?&style=for-the-badge&logo=npm&logoColor=white)
+![figma](https://img.shields.io/badge/figma-%23F24E1E.svg?&style=for-the-badge&logo=figma&logoColor=white)
+![googlemaps](https://img.shields.io/badge/googlemaps-%234285F4.svg?&style=for-the-badge&logo=google-maps&logoColor=white)
+![insomnia](https://img.shields.io/badge/insomnia-%234000BF.svg?&style=for-the-badge&logo=insomnia&logoColor=white)
+
 
 ### Brief
 ##### I utilized Django RESTful Framework to construct API and defined serializers to handle data serialization and deserialization. Routing was established to configure API endpoints. For the frontend, I used React and SASS. I utilized Google Cloud Platform (GCP) to incorporate the map functionality, and personally developed a custom database for each truck.
