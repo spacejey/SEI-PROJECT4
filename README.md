@@ -36,13 +36,13 @@ The data necessary for Review created user name (Owner), rate (star), etc.
 - And I wrote pseudocode for Django, which I am using for the first time. I started writing code after configuring CRUD by writing each field, model, and view. React wrote the pseudocode of the route, built the folder, and started writing the code.
 
 ## Process
-### Django 
+### Django(Backend)
 #### RESTful Framework
 - In the initial 2 days I covered the Django REST framework. I created a project folder to handle the overall control of fields, as well as separate folders for each field's code. In the first step, I populated the fields in the Models. Then, for the second step, I implemented CRUD operations in the views. I also included functionality to create instances for serialization and convert them to JSON format. I utilized the is_valid method to validate the effectiveness of the serializer. In the third step, I added URLs and performed migrations. Throughout the process, I inserted data into the admin interface, completing all the necessary steps.
 #### Data Relationship
 - One of the most important aspects I considered in Django was the relationship between different data. I created the truck model first and used a ForeignKey in the review model to establish a relationship path with the truck model. Calculating the dependency relationships between data was crucial. I even had to redo the seeding process due to difficulties I encountered.
 
-### React
+### React(Frontend)
 - After completing the backend, I used React for the frontend. React felt much more convenient as I had previous experience using it frequently. To add map functionality to the frontend, I decided to use Google Cloud Platform (GCP) for the first time. Although the instructor recommended Mapbox, I personally had a strong affinity for Google Maps from my past travels, so I really wanted to use GCP.
 #### Google Maps
 - I obtained a Google Maps API key, installed and stored it in the secure .env file. I added the map component and integrated it with the backend data to display markers representing the locations of each truck on Google Maps. I extracted latitude and longitude from each truck's API data and used the isOpen method to show the truck information window when the marker is clicked.
